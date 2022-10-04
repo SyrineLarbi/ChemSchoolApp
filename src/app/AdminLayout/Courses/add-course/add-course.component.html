@@ -1,0 +1,112 @@
+<div>
+    <div class="navSection">
+        <!------------SideBar------------> 
+          <section class="sideBar"  [ngClass]="{toggle:closed}">
+             <!--------------------Side header---------------->
+             <div id="sideBar-Header">
+                 <div class="logo" (click)="toggleSideBar()">
+                    <a class="link-dash" routerLink="dashboard">
+                     <img class="sideBar-logo" src="../../assets/logo.png" alt="logo"> 
+                     <span class="logo-name" *ngIf="!closed">Chem School</span>
+                 </a>
+                 </div>
+                 <div class="user">
+                     <div class="user-picture">
+                        <a routerLink="profile"> <img class="user-profile" src="../../assets/J.png" alt="user"></a>
+                     </div>
+                     <div class="user-info" *ngIf="!closed">
+                         <span>Welcome,</span>
+                         <h4 class="user-name">
+                             Jennie Ruby Jane
+                         </h4>
+                     </div>
+                 </div>
+             </div>
+             <!-----------------Side main------------------->
+             <div class="sideBar-main">
+                     <ul class="nav">
+                     <li class="nav-container" *ngFor=" let detail of navDetails">
+                         <a class="nav-link" [routerLink]="[detail.link]">
+                             <i class="nav-icon" [class]="detail.icon"></i>
+                             <span class="nav-name" *ngIf="!closed">{{detail.name}}</span>
+                         </a>
+                     </li>
+                 </ul>
+             </div>
+          </section>
+        </div>
+        <div class="container"  [ngClass]="{toggle:closed}">
+            <section >
+                <form #formCourse="ngForm" class="form_teacher">
+                <div class="information">
+                        <h2 class="form_legend">Add Course</h2>
+                        <div class="details">
+                            <div class="details_Container">
+                                <label class="f_name" for="f_name">
+                                    <input type="text" id="f_name" class="info name" placeholder=" " name="name" #nameTeacher="ngModel" ngModel required  pattern="[a-zA-Z\s]+" >
+                                    <span  class="label_input">Course Name: </span>
+                                 </label>
+                                 <div  style="position:relative;top:5px" [hidden]="nameTeacher.valid ||nameTeacher.pristine" class="alert alert-danger" role="alert">
+                                    <div *ngIf="nameTeacher.errors?.['pattern']"> Name must be a characters</div>
+                                    <div *ngIf="nameTeacher.errors?.['required']"> Name is required </div>
+                                    
+                                  </div>
+                            </div>
+                            <div class="details_Container">
+                                <label class="f_name" for="l_name">
+                                    <input type="text" id="l_name" class="info name" placeholder=" " name="Last_name" ngModel #lnameTeacher="ngModel" required pattern="[a-zA-Z\s]+">
+                                    <span class="label_input">Reference: </span>
+                                </label>
+                                <div  style="position:relative;top:5px" [hidden]="lnameTeacher.valid ||lnameTeacher.pristine" class="alert alert-danger" role="alert">
+                                    <div *ngIf="lnameTeacher.errors?.['pattern']"> Name must be a characters</div>
+                                    <div *ngIf="lnameTeacher.errors?.['required']"> Name is required </div>
+                                    
+                                  </div>
+                            </div> 
+                        </div>
+                        <div class="contain">
+                            <select class="form-select info" aria-label="role select role"  name="section" id="section" ngModel>
+                                <option selected>Select a section</option>
+                                <option value="Admin">Organic Chemistry</option>
+                                <option value="Others" >Inorganic Chemistry</option>
+                            </select>
+                        </div>
+                        
+                        <div class="details">
+                            <div class="details_Container">
+                                <label class="f_name" for="age">
+                                    <input type="number" id="age" class="info age" placeholder=" " name="Age" #ageTeacher="ngModel" ngModel required min="23">
+                                    <span class="label_input">Age : </span>
+                                </label>
+                                <div style="position:relative;top:5px" [hidden]="ageTeacher.valid ||ageTeacher.pristine" class="alert alert-danger" role="alert"> 
+                                    <div *ngIf="ageTeacher.errors?.['min']"> Age must be more than 23</div>
+                                    <div *ngIf="ageTeacher.errors?.['required']"> Age is required</div>
+                                  </div>
+                            </div>
+                            <div class="details_Container">
+                                <label class="f_name" for="phone">
+                                    <input type="number" id="phone" #phoneNumberTeacher="ngModel" minlength="8" class="info phone" required placeholder=" " name="Phone_number" ngModel>
+                                    <span class="label_input">Phone number : </span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="address contain">
+                            <label class="f_name" for="address">
+                                <input type="text" id="address"  #addressTeacher="ngModel" class="info address" required placeholder=" " name="Address" ngModel>
+                                <span class="label_input">Address : </span>
+                            </label>
+                            <div style="position:relative;top:5px" [hidden]="addressTeacher.valid||addressTeacher.pristine" class="alert alert-danger" role="alert">
+                                <div *ngIf="addressTeacher.errors?.['required']">
+                                    Address is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button">
+                             <button  class="btn btn_submit" type="submit">Add</button>
+                             <button  class="btn btn_reset" type="reset">Cancel</button>
+                        </div>
+                </div>
+            </form>
+            </section>
+        </div>

@@ -20,9 +20,9 @@ export const navData=[
         name:"Student"
     },
     {
-        link:"class",
+        link:"/addcourses",
         icon:"bi bi-book-fill",
-        name:"Class"
+        name:"Courses"
     },
     {
         link:"attendance",

@@ -50,9 +50,9 @@
                     <td scope="row">{{teacher.First_name}} {{teacher.Last_name}}</td>
                     <td>{{teacher.Speciality}}</td>
                     <td>{{teacher.Email}}</td>
-                    <td><button type="button" class="btn btn-outline-danger" (click)="deleteTeacherTS(teacher._id)"> Delete</button></td>
-                    <td>
-                         <button type="button" class="btn btn_edit btn-outline-success" data-bs-toggle="modal" data-bs-target="#teacherDetails">
+                    <td class="t"><button type="button" class="btn btn-outline-danger" (click)="deleteTeacherTS(teacher._id)"> Delete</button></td>
+                    <td class="t">
+                         <button type="t" class="btn btn_edit btn-outline-success" data-bs-toggle="modal" data-bs-target="#teacherDetails">
                         <a routerLink="/edit/{{teacher._id}}">Edit</a>
                       </button>
                     </td>

@@ -9,6 +9,7 @@ import { SuperAdminDashboardComponent } from './SuperAdminLayout/super-admin-das
 import { AddTeacherComponent } from './AdminLayout/Teacher/add-teacher/add-teacher.component';
 import { ManageTeacherComponent } from './AdminLayout/Teacher/manage-teacher/manage-teacher.component';
 import { ViewTeacherComponent } from './AdminLayout/Teacher/view-teacher/view-teacher.component';
+import { AddCourseComponent } from './AdminLayout/Courses/add-course/add-course.component';
 
 const routes: Routes = [
   {path:"addusers",component:AddUsersComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:'Dashboard',component:SuperAdminDashboardComponent},
   {path:"addTeacher",component:AddTeacherComponent},
   {path:"ManageTeacher",component:ManageTeacherComponent},
-  {path:"viewTeacher",component:ViewTeacherComponent}
+  {path:"viewTeacher",component:ViewTeacherComponent},
+  {path:"addcourses",component:AddCourseComponent}
 
 ];
 

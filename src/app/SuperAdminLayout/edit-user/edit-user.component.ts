@@ -30,6 +30,7 @@ getDataUser(user:Users){
 updateUser(user:UsersService){
   return this.userService.updateUser(this.UserData).subscribe(update=>{
     this.UserData=update;
+  
     this.router.navigate(['/manageUser'])
   })
 

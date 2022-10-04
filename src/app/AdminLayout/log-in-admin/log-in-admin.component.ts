@@ -15,19 +15,32 @@ export class LogInAdminComponent implements OnInit {
   faPassword=faLock;
   fahide=faEyeSlash;
   messageAuthError:any;
+  data:any=[]
   constructor(private router:Router,private user:AuthService) { }
 
   ngOnInit(): void {
+    this.checkRole()
+  }
+  checkRole(){
+    let role=localStorage.getItem("userRole")
+    switch (role) {
+      case "SuperAdmin":
+        this.router.navigate(['/manageUser'])
+        break;
+    
+      default:
+        this.router.navigate([''])
+    }
   }
   LogInTS(users:Auth){
 return this.user.logIn(users).subscribe(result=>{
-  console.log("user logged");
-    if(users.Email=="admin@gmail.com" && users.Password=="2022"){
-      this.router.navigate(["/addusers"])
-    }
-    else if(users){
-      this.router.navigate(["/Teacher"])
-    } 
-},err=>this.messageAuthError="invalid email and password")
+  this.data=result;
+
+  localStorage.setItem('userRole',this.data.Role)
+  this.checkRole();
+
+
+ 
+})
   }
 }

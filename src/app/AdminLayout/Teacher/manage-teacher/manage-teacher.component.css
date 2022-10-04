@@ -163,3 +163,8 @@ padding: 3% 0;
     color: green;
     width: 40%;
   }
+ td:not(.t) {
+   padding-top:1.5%;
+   /* margin-top: 2%; */
+ }
+  

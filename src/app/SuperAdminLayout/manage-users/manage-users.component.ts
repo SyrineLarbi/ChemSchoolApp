@@ -32,6 +32,7 @@ export class ManageUsersComponent implements OnInit {
   }
   logOut(){
     return this.authentification.logOut().subscribe(result=>{
+      localStorage.removeItem('userRole');
       this.router.navigate([""])
     })
   }

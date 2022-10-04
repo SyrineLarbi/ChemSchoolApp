@@ -18,6 +18,7 @@ import { SuperAdminDashboardComponent } from './SuperAdminLayout/super-admin-das
 import { EditUserComponent } from './SuperAdminLayout/edit-user/edit-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AddCourseComponent } from './AdminLayout/Courses/add-course/add-course.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ManageUsersComponent,
     SuperAdminDashboardComponent,
     EditUserComponent,
+    AddCourseComponent,
   ],
   imports: [
     BrowserModule,
