@@ -1,0 +1,54 @@
+<div>
+    <div class="navSection">
+        <!------------SideBar------------> 
+          <section class="sideBar"  [ngClass]="{toggle:closed}">
+             <!--------------------Side header---------------->
+             <div id="sideBar-Header">
+                 <div class="logo" (click)="toggleSideBar()">
+                    <a class="link-dash" routerLink="dashboard">
+                     <img class="sideBar-logo" src="../../assets/logo.png" alt="logo"> 
+                     <span class="logo-name" *ngIf="!closed">Chem School</span>
+                 </a>
+                 </div>
+                 <div class="user">
+                     <div class="user-picture">
+                        <a routerLink="profile"> <img class="user-profile" src="../../assets/J.png" alt="user"></a>
+                     </div>
+                     <div class="user-info" *ngIf="!closed">
+                         <span>Welcome,</span>
+                         <h4 class="user-name">
+                             Jennie Ruby Jane
+                         </h4>
+                     </div>
+                 </div>
+             </div>
+             <!-----------------Side main------------------->
+             <div class="sideBar-main">
+                     <ul class="nav">
+                     <li class="nav-container" *ngFor=" let detail of navDetails">
+                         <a class="nav-link" [routerLink]="[detail.link]">
+                             <i class="nav-icon" [class]="detail.icon"></i>
+                             <span class="nav-name" *ngIf="!closed">{{detail.name}}</span>
+                         </a>
+                     </li>
+                 </ul>
+             </div>
+          </section>
+    </div>
+    <div class="container"  [ngClass]="{toggle:closed}">
+        
+        <div class="teachers">
+            <div class="info-card" *ngFor="let card of cards">
+                <div class="info-card-main">
+                    <div class="info-card-front">
+                    <img  class="user_picture" [src]="card.url" alt="Avatar">
+                    </div>
+                    <div class="info-card-back">
+                    <h2 class="name">{{card.First_name}} {{card.Last_name}}</h2> 
+                    <p class="speciality">{{card.Speciality}}</p> 
+                    <p class="email">Email: {{card.Email}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

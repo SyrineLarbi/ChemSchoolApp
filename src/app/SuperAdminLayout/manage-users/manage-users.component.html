@@ -1,0 +1,68 @@
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <div class="t">
+        <div class="logo">
+          <a class="navbar-brand link-dash" routerLink="Dashboard">
+           <img class="sideBar-logo" src="../../assets/logo.png" alt="logo"> 
+           <span class="logo-name">Chem School</span>
+          </a>
+       </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Hello back!</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/Dashboard">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/addusers">  <i class="icon bi bi-person-plus-fill"></i> Add Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="manageUser">  <i class="icon bi bi-person-plus-fill"></i> Manage Users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link logOut" (click)="logOut()">  <i class="bi bi-power"></i> LogOut</a>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <section>
+     
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Role</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr *ngFor="let user of users | filter:searchText index as i">
+                <td scope="row">{{user.Email}}</td>
+                <td>{{user.Password}}</td>
+                <td>{{user.Role}}</td>
+                <td><button type="button" class="btn btn-outline-danger" (click)="DeleteUserTS(user._id)">Delete</button></td>
+                <td>
+                     <button type="button" class="btn btn_edit btn-outline-success" data-bs-toggle="modal" data-bs-target="#teacherDetails">
+                    <a routerLink="/editUser/{{user._id}}">Edit</a>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <form>
+            <input type="text" name="searchText "placeholder="Search"  [(ngModel)]="searchText">
+          </form>
+    </section>
+  </div>

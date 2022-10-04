@@ -1,0 +1,94 @@
+<div>
+<div class="navSection">
+    <!------------SideBar------------> 
+      <section class="sideBar"  [ngClass]="{toggle:closed}">
+         <!--------------------Side header---------------->
+         <div id="sideBar-Header">
+             <div class="logo" (click)="toggleSideBar()">
+                <a class="link-dash" routerLink="dashboard">
+                 <img class="sideBar-logo" src="../../assets/logo.png" alt="logo"> 
+                 <span class="logo-name" *ngIf="!closed">Chem School</span>
+             </a>
+             </div>
+             <div class="user">
+                 <div class="user-picture">
+                    <a routerLink="profile"> <img class="user-profile" src="../../assets/J.png" alt="user"></a>
+                 </div>
+                 <div class="user-info" *ngIf="!closed">
+                     <span>Welcome,</span>
+                     <h4 class="user-name">
+                         Jennie Ruby Jane
+                     </h4>
+                 </div>
+             </div>
+         </div>
+         <!-----------------Side main------------------->
+         <div class="sideBar-main">
+                 <ul class="nav">
+                 <li class="nav-container" *ngFor=" let detail of navDetails">
+                     <a class="nav-link" [routerLink]="[detail.link]">
+                         <i class="nav-icon" [class]="detail.icon"></i>
+                         <span class="nav-name" *ngIf="!closed">{{detail.name}}</span>
+                     </a>
+                 </li>
+             </ul>
+         </div>
+      </section>
+    </div>
+    <div class="container"  [ngClass]="{toggle:closed}">
+        <section>
+            <form #formTeacher="ngForm" class="form_teacher" (ngSubmit)="addUserTs(formTeacher.value)">
+                <div class="information">
+                    <h2 class="form_legend">Add User</h2>
+                    <div class="details">
+                        <div class="email contain">
+                            <label class="f_name" for="email">
+                                <input type="email" id="email"  #emailTeacher="ngModel" ngModel class="info email" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/" placeholder=" " name="Email" required email minlength="3">
+                                <span class="label_input">Email : </span>
+                            </label>
+                            <div style="position:relative;top:5px" [hidden]="emailTeacher.valid||emailTeacher.pristine" class="alert alert-danger" role="alert">
+                                <div *ngIf="emailTeacher.errors?.['required']">
+                                    Email is required
+                                </div>
+                                <div *ngIf=" emailTeacher.errors?.['email']">
+                                    Email is invalid
+                                </div>
+                            </div>
+                        </div>
+                        <div class="password contain">
+                            <label class="f_name" for="password">
+                                <input type="password" id="password" class="info password" placeholder=" " name="Password" #passwordTeacher="ngModel" ngModel required minlength="6" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$">
+                                <span class="label_input">Password : </span>
+                            </label>
+                            <div style="position:relative;top:5px" [hidden]="passwordTeacher.valid||passwordTeacher.pristine" class="alert alert-danger" role="alert">
+                                <div *ngIf="passwordTeacher.errors?.['required']">
+                                    password is required
+                                </div>
+                                <div *ngIf="passwordTeacher.errors?.['pattern'] && passwordTeacher.errors?.['minlength']">
+                                    Password must contain more than 6 characters, 1 upper case letter, and 1
+                                     special character
+                                </div>
+                            </div>
+                        </div>
+                        <div class="role contain">
+                            <select class="form-select" aria-label="role select role" class="info" name="Role" ngModel>
+                                <option selected>Select a Role</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Others" >Users</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="button">
+                    <button  class="btn btn_submit" type="submit">Add</button>
+                    <button  class="btn btn_reset" type="reset">Cancel</button>
+                </div>
+                </div>
+            </form>
+        </section>
+
+
+
+
+    </div>
+</div>
+    

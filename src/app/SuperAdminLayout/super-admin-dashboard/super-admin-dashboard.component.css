@@ -1,0 +1,38 @@
+.chartBox{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 30px;
+    border: 1px solid black;
+    height: 30vh;
+}
+.box{
+    position: relative;
+    /* background-color: rgba(179, 95, 95, 0.244); */
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+}
+.card{
+    width: 20%;
+    background-color: rgb(118, 158, 219);
+    border: 1px solid black;
+}
+
+
+
+
+/*responsive design*/
+@media (max-width: 991px )
+{
+    .chartBox{
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+
+}
+
+

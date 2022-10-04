@@ -1,0 +1,29 @@
+<div class="logInPage">
+
+
+    <section class="container">
+        <div class="header">
+         <h2>LogIn</h2>
+        </div>
+        <div class="form_login">
+          <form class="logIn" #logIn="ngForm" (ngSubmit)="LogInTS(logIn.value)">
+            <div class="mb-3 formUser">
+              <fa-icon class="icon" [icon]="faUser"></fa-icon>
+              <input type="email" class="form-control" id="emailUser" aria-describedby="emailHelp" placeholder="Email" name="Email" ngModel>
+            </div>
+            <div class="mb-3 formUser">
+              <fa-icon class="icon" [icon]="faPassword"></fa-icon>
+              <input type="password" class="form-control" id="password_user" placeholder="Password" name="Password" ngModel>
+              <fa-icon class="hide" [icon]="fahide"></fa-icon>
+            </div>
+            <div class="error alert alert-danger" *ngIf="messageAuthError" >
+              {{messageAuthError}}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+            <div class="signup">
+              <span>Don't have an account? <a href="#" class="link signup-link">Signup</a></span>
+            </div>
+        </div>
+      </section>
+    </div>

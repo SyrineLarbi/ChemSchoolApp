@@ -1,0 +1,57 @@
+<div>
+    <div class="navSection">
+        <!------------SideBar------------> 
+          <section class="sideBar"  [ngClass]="{toggle:closed}">
+             <!--------------------Side header---------------->
+             <div id="sideBar-Header">
+                 <div class="logo" (click)="toggleSideBar()">
+                    <a class="link-dash" routerLink="dashboard">
+                     <img class="sideBar-logo" src="../../assets/logo.png" alt="logo"> 
+                     <span class="logo-name" *ngIf="!closed">Chem School</span>
+                 </a>
+                 </div>
+                 <div class="user">
+                     <div class="user-picture">
+                        <a routerLink="profile"> <img class="user-profile" src="../../assets/J.png" alt="user"></a>
+                     </div>
+                     <div class="user-info" *ngIf="!closed">
+                         <span>Welcome,</span>
+                         <h4 class="user-name">
+                             Jennie Ruby Jane
+                         </h4>
+                     </div>
+                 </div>
+             </div>
+             <!-----------------Side main------------------->
+             <div class="sideBar-main">
+                     <ul class="nav">
+                     <li class="nav-container" *ngFor=" let detail of navDetails">
+                         <a class="nav-link" [routerLink]="[detail.link]">
+                             <i class="nav-icon" [class]="detail.icon"></i>
+                             <span class="nav-name" *ngIf="!closed">{{detail.name}}</span>
+                         </a>
+                     </li>
+                 </ul>
+             </div>
+          </section>
+    </div>
+    <div class="container"  [ngClass]="{toggle:closed}">
+        <section class="teacher-container">
+            <div class="add teacher">
+                <i class="icon bi bi-person-plus-fill"></i>
+                <h2 class="title">Add new teacher </h2>
+                <button type="button" class="btn btn-outline"><a routerLink="/addTeacher" class="btn_link">Add</a></button>
+            </div>
+            <div class="view teacher">
+                <i class="icon bi bi-eye-fill"></i>
+                <h2 class="title">  View teacher details</h2>
+                <button type="button" class="btn btn-outline"><a routerLink="/viewTeacher" class="btn_link">View</a></button>
+            </div>
+            <div class="view teacher">
+                <i class="icon bi bi-pencil-square"></i>
+                <h2 class="title">Manage teacher</h2>
+                <button type="button" class="btn btn-outline"><a routerLink="/ManageTeacher" class="btn_link">Edit</a></button>
+            </div>
+        </section>
+    </div>
+</div>

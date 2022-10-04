@@ -1,0 +1,83 @@
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Dashboard Users</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Hello back!</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">  <i class="icon bi bi-person-plus-fill"></i> Add Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">  <i class="icon bi bi-person-plus-fill"></i> Manage Users</a>
+              </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <section>
+        <form #formUser="ngForm" class="form_teacher" (ngSubmit)="updateUser(formUser.value)">
+            <div class="information">
+                <h2 class="form_legend">Add User</h2>
+                <div class="details">
+                    <div class="email contain">
+                        <label class="f_name" for="email">
+                            <input type="hidden" name="_id" [(ngModel)]="UserData._id">
+                            <input type="email" id="email"  #emailTeacher="ngModel" ngModel class="info email" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/" placeholder=" " name="Email" required email minlength="3" [(ngModel)]="UserData.Email">
+                            <span class="label_input">Email : </span>
+                        </label>
+                        <div style="position:relative;top:5px" [hidden]="emailTeacher.valid||emailTeacher.pristine" class="alert alert-danger" role="alert">
+                            <div *ngIf="emailTeacher.errors?.['required']">
+                                Email is required
+                            </div>
+                            <div *ngIf=" emailTeacher.errors?.['email']">
+                                Email is invalid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="password contain">
+                        <label class="f_name" for="password">
+                            <input type="password" id="password" class="info password" placeholder=" " name="Password" [(ngModel)]="UserData.Password" #passwordTeacher="ngModel" ngModel required minlength="6" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$">
+                            <span class="label_input">Password : </span>
+                        </label>
+                        <div style="position:relative;top:5px" [hidden]="passwordTeacher.valid||passwordTeacher.pristine" class="alert alert-danger" role="alert">
+                            <div *ngIf="passwordTeacher.errors?.['required']">
+                                password is required
+                            </div>
+                            <div *ngIf="passwordTeacher.errors?.['pattern'] && passwordTeacher.errors?.['minlength']">
+                                Password must contain more than 6 characters, 1 upper case letter, and 1
+                                 special character
+                            </div>
+                        </div>
+                    </div>
+                    <div class="role contain">
+                        <select class="form-select" aria-label="role select role" class="info" name="Role" ngModel [(ngModel)]="UserData.Role">
+                            <option selected>Select a Role</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Others" >Users</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="button">
+                <button  class="btn btn_submit" type="submit">Add</button>
+                <button  class="btn btn_reset" type="reset">Cancel</button>
+            </div>
+            </div>
+        </form>
+    </section>
+  </div>
