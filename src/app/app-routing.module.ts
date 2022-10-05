@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddUsersComponent } from './SuperAdminLayout/add-users/add-users.component';
-import { LogInAdminComponent } from './AdminLayout/log-in-admin/log-in-admin.component';
+import { LogInAdminComponent } from './LogIn_Out/log-in-admin/log-in-admin.component';
 import { ManageUsersComponent } from './SuperAdminLayout/manage-users/manage-users.component';
 import { TeacherDashboardComponent } from './AdminLayout/Teacher/teacher-dashboard/teacher-dashboard.component';
 import { EditUserComponent } from './SuperAdminLayout/edit-user/edit-user.component';
@@ -10,6 +10,8 @@ import { AddTeacherComponent } from './AdminLayout/Teacher/add-teacher/add-teach
 import { ManageTeacherComponent } from './AdminLayout/Teacher/manage-teacher/manage-teacher.component';
 import { ViewTeacherComponent } from './AdminLayout/Teacher/view-teacher/view-teacher.component';
 import { AddCourseComponent } from './AdminLayout/Courses/add-course/add-course.component';
+import { LogOutComponent } from './LogIn_Out/log-out/log-out.component';
+import { EditTeacherComponent } from './AdminLayout/Teacher/edit-teacher/edit-teacher.component';
 
 const routes: Routes = [
   {path:"addusers",component:AddUsersComponent},
@@ -22,7 +24,9 @@ const routes: Routes = [
   {path:"addTeacher",component:AddTeacherComponent},
   {path:"ManageTeacher",component:ManageTeacherComponent},
   {path:"viewTeacher",component:ViewTeacherComponent},
-  {path:"addcourses",component:AddCourseComponent}
+  {path:"addcourses",component:AddCourseComponent},
+  {path:"LogOut",component:LogOutComponent},
+  {path:"edit/:_id",component:EditTeacherComponent}
 
 ];
 

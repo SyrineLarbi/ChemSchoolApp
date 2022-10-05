@@ -3,6 +3,7 @@ import { navData } from 'src/app/SuperAdminLayout/add-users/nav.Details';
 import { Teachers } from '../../Interfaces/teachers';
 import { TeachersService } from '../../Services/teachers.service';
 import { Route, Router } from '@angular/router';
+import { AuthService } from '../../AuthService/auth.service';
 
 @Component({
   selector: 'app-add-teacher',
@@ -12,7 +13,7 @@ import { Route, Router } from '@angular/router';
 export class AddTeacherComponent implements OnInit {
   closed=false;
   navDetails=navData;
-  constructor(private teacherSrv:TeachersService, private route:Router) { }
+  constructor(private authentification:AuthService,private teacherSrv:TeachersService, private route:Router) { }
 
   ngOnInit(): void {
   }
@@ -37,5 +38,10 @@ export class AddTeacherComponent implements OnInit {
   }
   )
   }
-  
+  logOut(){
+    return this.authentification.logOut().subscribe(result=>{
+      localStorage.removeItem('userRole');
+      this.route.navigate([""])
+    })
+  }
 }

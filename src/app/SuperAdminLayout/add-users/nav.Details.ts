@@ -30,8 +30,8 @@ export const navData=[
         name:"Attendance"
     },
     {
-        link:"marksheet",
+        link:"/LogOut",
         icon:"bi bi-clipboard-data-fill ",
-        name:"Marksheet"
+        name:"LogOut"
     }
 ]

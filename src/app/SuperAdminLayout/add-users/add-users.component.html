@@ -1,41 +1,43 @@
-<div>
-<div class="navSection">
-    <!------------SideBar------------> 
-      <section class="sideBar"  [ngClass]="{toggle:closed}">
-         <!--------------------Side header---------------->
-         <div id="sideBar-Header">
-             <div class="logo" (click)="toggleSideBar()">
-                <a class="link-dash" routerLink="dashboard">
-                 <img class="sideBar-logo" src="../../assets/logo.png" alt="logo"> 
-                 <span class="logo-name" *ngIf="!closed">Chem School</span>
-             </a>
-             </div>
-             <div class="user">
-                 <div class="user-picture">
-                    <a routerLink="profile"> <img class="user-profile" src="../../assets/J.png" alt="user"></a>
-                 </div>
-                 <div class="user-info" *ngIf="!closed">
-                     <span>Welcome,</span>
-                     <h4 class="user-name">
-                         Jennie Ruby Jane
-                     </h4>
-                 </div>
-             </div>
-         </div>
-         <!-----------------Side main------------------->
-         <div class="sideBar-main">
-                 <ul class="nav">
-                 <li class="nav-container" *ngFor=" let detail of navDetails">
-                     <a class="nav-link" [routerLink]="[detail.link]">
-                         <i class="nav-icon" [class]="detail.icon"></i>
-                         <span class="nav-name" *ngIf="!closed">{{detail.name}}</span>
-                     </a>
-                 </li>
-             </ul>
-         </div>
-      </section>
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <div class="t">
+        <div class="logo">
+          <a class="navbar-brand link-dash" routerLink="Dashboard">
+           <img class="sideBar-logo" src="../../assets/logo.png" alt="logo"> 
+           <span class="logo-name">Chem School</span>
+          </a>
+       </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Hello back!</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/Dashboard">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/addusers">  <i class="icon bi bi-person-plus-fill"></i> Add Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/manageUser">  <i class="icon bi bi-person-plus-fill"></i> Manage Users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link logOut" routerLink="/LogOut">  <i class="bi bi-power"></i> LogOut</a>
+          </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="container"  [ngClass]="{toggle:closed}">
+  </nav>
+
+    <div class="container">
         <section>
             <form #formTeacher="ngForm" class="form_teacher" (ngSubmit)="addUserTs(formTeacher.value)">
                 <div class="information">
@@ -85,10 +87,5 @@
                 </div>
             </form>
         </section>
-
-
-
-
     </div>
-</div>
     

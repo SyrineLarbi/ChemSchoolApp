@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {faUser, faLock, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 import { Route,Router } from '@angular/router';
-import { Auth } from '../AuthService/auth';
-import { AuthService } from '../AuthService/auth.service';
-import { Users } from '../Interfaces/users';
+import { Auth } from '../../AdminLayout/AuthService/auth';
+import { AuthService } from '../../AdminLayout/AuthService/auth.service';
+import { Users } from '../../AdminLayout/Interfaces/users';
 
 @Component({
   selector: 'app-log-in-admin',
@@ -25,9 +25,11 @@ export class LogInAdminComponent implements OnInit {
     let role=localStorage.getItem("userRole")
     switch (role) {
       case "SuperAdmin":
-        this.router.navigate(['/manageUser'])
+        this.router.navigate(['/ViewUsers'])
         break;
-    
+      case "Admin":
+        this.router.navigate(['/ManageTeacher'])
+          break;
       default:
         this.router.navigate([''])
     }

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LogInAdminComponent } from './AdminLayout/log-in-admin/log-in-admin.component';
+import { LogInAdminComponent } from './LogIn_Out/log-in-admin/log-in-admin.component';
 import { AddTeacherComponent } from './AdminLayout/Teacher/add-teacher/add-teacher.component';
 import { TeacherDashboardComponent } from './AdminLayout/Teacher/teacher-dashboard/teacher-dashboard.component';
 import { EditTeacherComponent } from './AdminLayout/Teacher/edit-teacher/edit-teacher.component';
@@ -19,6 +19,7 @@ import { EditUserComponent } from './SuperAdminLayout/edit-user/edit-user.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AddCourseComponent } from './AdminLayout/Courses/add-course/add-course.component';
+import { LogOutComponent } from './LogIn_Out/log-out/log-out.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { AddCourseComponent } from './AdminLayout/Courses/add-course/add-course.
     SuperAdminDashboardComponent,
     EditUserComponent,
     AddCourseComponent,
+    LogOutComponent,
   ],
   imports: [
     BrowserModule,
