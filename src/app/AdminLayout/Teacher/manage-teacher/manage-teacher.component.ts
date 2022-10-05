@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { navData } from 'src/app/SuperAdminLayout/add-users/nav.Details';
-import { Teachers } from '../../Interfaces/teachers';
-import { TeachersService } from '../../Services/teachers.service';
+import { Teachers } from '../../../Interfaces/teachers';
+import { TeachersService } from '../../../Services/teachers.service';
 import { ActivatedRoute } from '@angular/router';
 import { Route,Router } from '@angular/router';
 

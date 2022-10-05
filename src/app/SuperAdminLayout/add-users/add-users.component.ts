@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { navData } from './nav.Details';
-import { Users } from '../../AdminLayout/Interfaces/users';
-import { UsersService } from '../../AdminLayout/Services/users.service';
+import { Users } from '../../Interfaces/users';
+import { UsersService } from '../../Services/users.service';
 import { Route,Router } from '@angular/router';
 
 @Component({

@@ -81,7 +81,7 @@
                                 <div *ngIf="speciality.errors?.['required']"> Speciality is required </div>
                               </div>
                         </div>
-                        <div class="email contain">
+                        <!-- <div class="email contain">
                             <label class="f_name" for="email">
                                 <input type="email" id="email"  #emailTeacher="ngModel" ngModel class="info email" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/" placeholder=" " name="Email" required email minlength="3">
                                 <span class="label_input">Email : </span>
@@ -94,6 +94,12 @@
                                     Email is invalid
                                 </div>
                             </div>
+                        </div> -->
+                        <div class="contain">
+                            <select class="form-select info" aria-label="role select role"  name="Email" id="section" ngModel >
+                                <option selected>Select a section</option>
+                                <option *ngFor="let email of EmailTeachers" value="{{email}}">{{email}}</option>
+                            </select>
                         </div>
                         <div class="password contain">
                             <label class="f_name" for="password">

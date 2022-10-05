@@ -36,4 +36,124 @@
           </section>
     </div>
     <div class="container"  [ngClass]="{toggle:closed}">
+        <section >
+            <form #formTeacher="ngForm" class="form_teacher" (ngSubmit)="updateTeacher(formTeacher.value)">
+            <div class="picture">
+                <!-- <img class="teach_img" src="../../../assets/jennie ruby.jpg" alt="user"> -->
+                 <img class="teach_img" [src]="url">
+               <button class="btn btn_img" type="button">
+                <i class="bi bi-box-arrow-up"></i> Upload
+                <input class="file" type="file" name="Picture" value="url" (change)="selectFile($event)" ngModel>
+            </button>
+            </div>
+            <div class="information">
+                    <h2 class="form_legend">Add teacher</h2>
+                    <div class="details">
+                        <div class="details_Container">
+                            <label class="f_name" for="f_name">
+                                <input type="hidden" name="_id" [(ngModel)]="TeacherData._id">
+                                <input type="text" id="f_name" class="info name" placeholder=" " name="First_name" #nameTeacher="ngModel" ngModel [(ngModel)]="TeacherData.First_name" required  pattern="[a-zA-Z\s]+" >
+                                <span  class="label_input">First name : </span>
+                             </label>
+                             <div  style="position:relative;top:5px" [hidden]="nameTeacher.valid ||nameTeacher.pristine" class="alert alert-danger" role="alert">
+                                <div *ngIf="nameTeacher.errors?.['pattern']"> Name must be a characters</div>
+                                <div *ngIf="nameTeacher.errors?.['required']"> Name is required </div>
+                                
+                              </div>
+                        </div>
+                        <div class="details_Container">
+                            <label class="f_name" for="l_name">
+                                <input type="text" id="l_name" class="info name" placeholder=" " name="Last_name" ngModel [(ngModel)]="TeacherData.Last_name" #lnameTeacher="ngModel" required pattern="[a-zA-Z\s]+">
+                                <span class="label_input">Last name : </span>
+                            </label>
+                            <div  style="position:relative;top:5px" [hidden]="lnameTeacher.valid ||lnameTeacher.pristine" class="alert alert-danger" role="alert">
+                                <div *ngIf="lnameTeacher.errors?.['pattern']"> Name must be a characters</div>
+                                <div *ngIf="lnameTeacher.errors?.['required']"> Name is required </div>
+                                
+                              </div>
+                        </div> 
+                    </div>
+                    <div class="contain">
+                        <label class="f_name" for="Speciality">
+                          <input type="text" id="Speciality" class="info" placeholder=" " #speciality="ngModel" name="Speciality" required ngModel [(ngModel)]="TeacherData.Speciality">
+                          <span class="label_input">Speciality : </span>
+                        </label>
+                        <div  style="position:relative;top:5px" [hidden]="speciality.valid ||speciality.pristine" class="alert alert-danger" role="alert">
+                            <div *ngIf="speciality.errors?.['required']"> Speciality is required </div>
+                          </div>
+                    </div>
+                    <div class="email contain">
+                        <label class="f_name" for="email">
+                            <input type="email" id="email"  #emailTeacher="ngModel" [(ngModel)]="TeacherData.Email" ngModel class="info email" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/" placeholder=" " name="Email" required email minlength="3">
+                            <span class="label_input">Email : </span>
+                        </label>
+                        <div style="position:relative;top:5px" [hidden]="emailTeacher.valid||emailTeacher.pristine" class="alert alert-danger" role="alert">
+                            <div *ngIf="emailTeacher.errors?.['required']">
+                                Email is required
+                            </div>
+                            <div *ngIf=" emailTeacher.errors?.['email']">
+                                Email is invalid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="password contain">
+                        <label class="f_name" for="password">
+                            <input type="password" id="password" class="info password" placeholder=" " name="Password" #passwordTeacher="ngModel" ngModel [(ngModel)]="TeacherData.Password" required minlength="6" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$">
+                            <span class="label_input">Password : </span>
+                        </label>
+                        <div style="position:relative;top:5px" [hidden]="passwordTeacher.valid||passwordTeacher.pristine" class="alert alert-danger" role="alert">
+                            <div *ngIf="passwordTeacher.errors?.['required']">
+                                password is required
+                            </div>
+                            <div *ngIf="passwordTeacher.errors?.['pattern'] && passwordTeacher.errors?.['minlength']">
+                                Password must contain more than 6 characters, 1 upper case letter, and 1
+                                special character
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <div class="details_Container">
+                            <label class="f_name" for="age">
+                                <input type="number" id="age" class="info age" placeholder=" " name="Age" #ageTeacher="ngModel" ngModel [(ngModel)]="TeacherData.Age" required min="23">
+                                <span class="label_input">Age : </span>
+                            </label>
+                            <div style="position:relative;top:5px" [hidden]="ageTeacher.valid ||ageTeacher.pristine" class="alert alert-danger" role="alert"> 
+                                <div *ngIf="ageTeacher.errors?.['min']"> Age must be more than 23</div>
+                                <div *ngIf="ageTeacher.errors?.['required']"> Age is required</div>
+                              </div>
+                        </div>
+                        <div class="details_Container">
+                            <label class="f_name" for="phone">
+                                <input type="number" id="phone" #phoneNumberTeacher="ngModel" minlength="8" class="info phone" required placeholder=" " name="Phone_number" ngModel [(ngModel)]="TeacherData.Phone_number">
+                                <span class="label_input">Phone number : </span>
+                            </label>
+                            <div style="position:relative;top:5px" [hidden]="phoneNumberTeacher.valid||phoneNumberTeacher.pristine" class="alert alert-danger" role="alert">
+                                <div *ngIf="phoneNumberTeacher.errors?.['required']">
+                                    password is required
+                                </div>
+                                <div *ngIf="passwordTeacher.errors?.['minlength']">
+                                    Phone number must contain more than 6 characters
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="address contain">
+                        <label class="f_name" for="address">
+                            <input type="text" id="address"  #addressTeacher="ngModel" class="info address" required placeholder=" " name="Address" ngModel [(ngModel)]="TeacherData.Address">
+                            <span class="label_input">Address : </span>
+                        </label>
+                        <div style="position:relative;top:5px" [hidden]="addressTeacher.valid||addressTeacher.pristine" class="alert alert-danger" role="alert">
+                            <div *ngIf="addressTeacher.errors?.['required']">
+                                Address is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button">
+                         <button  class="btn btn_submit" type="submit">Add</button>
+                         <button  class="btn btn_reset" type="reset">Cancel</button>
+                    </div>
+            </div>
+        </form>
+        </section>
     </div>

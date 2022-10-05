@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {faUser, faLock, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 import { Route,Router } from '@angular/router';
-import { Auth } from '../../AdminLayout/AuthService/auth';
-import { AuthService } from '../../AdminLayout/AuthService/auth.service';
-import { Users } from '../../AdminLayout/Interfaces/users';
+import { Auth } from '../../Services/AuthService/auth';
+import { AuthService } from '../../Services/AuthService/auth.service';
+import { Users } from '../../Interfaces/users';
 
 @Component({
   selector: 'app-log-in-admin',
@@ -35,7 +35,7 @@ export class LogInAdminComponent implements OnInit {
     }
   }
   LogInTS(users:Auth){
-return this.user.logIn(users).subscribe(result=>{
+  return this.user.logIn(users).subscribe(result=>{
   this.data=result;
 
   localStorage.setItem('userRole',this.data.Role)

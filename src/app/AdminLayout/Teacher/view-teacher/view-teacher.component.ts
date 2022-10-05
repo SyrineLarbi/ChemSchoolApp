@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { navData } from 'src/app/SuperAdminLayout/add-users/nav.Details';
 import { Route,Router } from '@angular/router';
-import { Teachers } from '../../Interfaces/teachers';
-import { TeachersService } from '../../Services/teachers.service';
+import { Teachers } from '../../../Interfaces/teachers';
+import { TeachersService } from '../../../Services/teachers.service';
 @Component({
   selector: 'app-view-teacher',
   templateUrl: './view-teacher.component.html',

@@ -375,6 +375,15 @@ input:focus + .label_input{
   display: flex;
   justify-content: center;
 }
+.select-selected {
+    background-color: transparent;
+    color: white;
+}
+option{
+    background-color: #344f6b;
+    color:#afbdcf;;
+  }
+
 @media (max-width:400px){
 
 }
