@@ -1,0 +1,80 @@
+<div>
+    <div class="navSection">
+        <!------------SideBar------------> 
+          <section class="sideBar"  [ngClass]="{toggle:closed}">
+             <!--------------------Side header---------------->
+             <div id="sideBar-Header">
+                 <div class="logo" (click)="toggleSideBar()">
+                    <a class="link-dash" routerLink="dashboard">
+                     <img class="sideBar-logo" src="../../assets/logo.png" alt="logo"> 
+                     <span class="logo-name" *ngIf="!closed">Chem School</span>
+                 </a>
+                 </div>
+                 <div class="user">
+                     <div class="user-picture">
+                        <a routerLink="profile"> <img class="user-profile" src="../../assets/J.png" alt="user"></a>
+                     </div>
+                     <div class="user-info" *ngIf="!closed">
+                         <span>Welcome,</span>
+                         <h4 class="user-name">
+                             Jennie Ruby Jane
+                         </h4>
+                     </div>
+                 </div>
+             </div>
+             <!-----------------Side main------------------->
+             <div class="sideBar-main">
+                     <ul class="nav">
+                     <li class="nav-container" *ngFor=" let detail of navDetails">
+                         <a class="nav-link" [routerLink]="[detail.link]">
+                             <i class="nav-icon" [class]="detail.icon"></i>
+                             <span class="nav-name" *ngIf="!closed">{{detail.name}}</span>
+                         </a>
+                     </li>
+                 </ul>
+             </div>
+          </section>
+    </div>
+    <div class="container"  [ngClass]="{toggle:closed}">
+        <div class="card_container" >
+            <div class="card">
+                <div>
+                    <h2>{{usersCounter}}</h2>
+                    <span class="title">Teacher</span>
+                </div>
+                <div>
+                    <span><i class="icon bi bi-briefcase-fill"></i></span>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <h2>98</h2>
+                    <span class="title"> Students</span>
+                </div>
+                <div>
+                    <span><i class="icon bi bi-mortarboard-fill"></i></span>
+                </div>
+            </div>
+            <div class="card">
+                <div>
+                    <h2>58</h2>
+                    <span class="title">Sections</span>
+                </div>
+                <div>
+                    <span><i class="icon bi bi-book-fill"></i></span>
+                </div>
+            </div>
+        </div>
+        <!--------------Charts----------------->
+        <div class="chart_container">
+            <div class="chart">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="chart"></div>
+
+        </div>
+
+    </div>
+
+
+

@@ -1,6 +1,6 @@
 export const navData=[
     {
-        link:"/Teacher",
+        link:"/AdminDashboard",
         icon:"bi bi-house-fill",
         name:"Dashboard"
     },

@@ -20,6 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AddCourseComponent } from './AdminLayout/Courses/add-course/add-course.component';
 import { LogOutComponent } from './LogIn_Out/log-out/log-out.component';
+import { AdminDashboardComponent } from './AdminLayout/admin-dashboard/admin-dashboard.component';
+import { HomeTeacherComponent } from './UserLayout/TeacherProfile/home-teacher/home-teacher.component';
+import { StudentsHomeComponent } from './UserLayout/StudentProfile/students-home/students-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +38,10 @@ import { LogOutComponent } from './LogIn_Out/log-out/log-out.component';
     EditUserComponent,
     AddCourseComponent,
     LogOutComponent,
+    AdminDashboardComponent,
+    HomeTeacherComponent,
+    StudentsHomeComponent,
+    
   ],
   imports: [
     BrowserModule,

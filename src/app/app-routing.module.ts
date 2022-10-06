@@ -12,7 +12,9 @@ import { ViewTeacherComponent } from './AdminLayout/Teacher/view-teacher/view-te
 import { AddCourseComponent } from './AdminLayout/Courses/add-course/add-course.component';
 import { LogOutComponent } from './LogIn_Out/log-out/log-out.component';
 import { EditTeacherComponent } from './AdminLayout/Teacher/edit-teacher/edit-teacher.component';
-
+import { AdminDashboardComponent } from './AdminLayout/admin-dashboard/admin-dashboard.component';
+import { HomeTeacherComponent } from './UserLayout/TeacherProfile/home-teacher/home-teacher.component';
+import { StudentsHomeComponent } from './UserLayout/StudentProfile/students-home/students-home.component';
 const routes: Routes = [
   {path:"addusers",component:AddUsersComponent},
   {path:"Teacher",component:TeacherDashboardComponent},
@@ -26,7 +28,10 @@ const routes: Routes = [
   {path:"viewTeacher",component:ViewTeacherComponent},
   {path:"addcourses",component:AddCourseComponent},
   {path:"LogOut",component:LogOutComponent},
-  {path:"edit/:_id",component:EditTeacherComponent}
+  {path:"edit/:_id",component:EditTeacherComponent},
+  {path:"AdminDashboard",component:AdminDashboardComponent},
+  {path:"TeacherHome",component:HomeTeacherComponent},
+  {path:"StudentsHome",component:StudentsHomeComponent}
 
 ];
 

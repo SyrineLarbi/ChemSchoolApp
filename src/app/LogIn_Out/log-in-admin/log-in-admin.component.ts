@@ -29,7 +29,13 @@ export class LogInAdminComponent implements OnInit {
         break;
       case "Admin":
         this.router.navigate(['/ManageTeacher'])
-          break;
+        break;
+      case "Teacher":
+        this.router.navigate(['/TeacherHome'])
+        break;
+      case "Student":
+        this.router.navigate(['/StudentsHome'])
+        break;
       default:
         this.router.navigate([''])
     }

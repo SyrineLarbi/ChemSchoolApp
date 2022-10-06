@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { navData } from './nav.Details';
+import { navData } from '../../Interfaces/nav.Details';
 import { Users } from '../../Interfaces/users';
 import { UsersService } from '../../Services/users.service';
 import { Route,Router } from '@angular/router';

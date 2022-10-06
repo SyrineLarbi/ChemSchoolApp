@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { navData } from 'src/app/SuperAdminLayout/add-users/nav.Details';
+import { navData } from 'src/app/Interfaces/nav.Details';
 import { Route,Router } from '@angular/router';
 
 @Component({
