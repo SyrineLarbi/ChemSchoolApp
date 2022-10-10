@@ -1,0 +1,53 @@
+<nav class="navBar">
+    <div class="barsIcone" ><i *ngIf="!toggleBar" (click)="toggleBars()"  class="bi bi-border-width"></i>
+        <i class="bi bi-x-lg" *ngIf="toggleBar" (click)="toggleBars()"></i></div>
+    <div class="nav_logo">
+        <a class="link-logo" routerLink="#">
+            <img class="logo" src="../../assets/logo.png" alt="logo"> 
+            <span class="logo-name">Chem School</span>
+        </a>
+    </div>
+    <div class="nav_main" [ngClass]="{te:toggleBar}">
+        <a href="#" class="home">Home</a>
+        <a href="#" class="home">TodoList</a>
+        <a href="#" class="home">Club</a>
+        <a href="#" class="home">Notes</a>
+        <a href="#" class="home">Quiz</a>
+        <a href="#" class="home">Bibliothèque</a>
+    </div>
+    <div class="LogOut">
+        <a class="nav-link logOut" routerLink="/LogOut">  <i class="bi bi-power"></i> LogOut</a>
+        <i class="bi bi-x-circle" *ngIf="close" (click)="searchBar()"></i>
+        <i class="bi bi-search" *ngIf="!close" (click)="searchBar()"></i>
+    </div>
+    <form action="" class="searchContainer" [ngClass]="{toggle:close}" >
+        <input type="search" id="searchBar" placeholder="Search here...">
+        <label for="searchBar"><i class="bi bi-search"></i></label>
+    </form>
+</nav>
+<section class="dashboard">
+    <div class="container">
+       <div class="dailyInfo">
+          
+       </div> 
+        <!-- <a href="#" class="btn">Discover More</a>  -->
+        <div class="tabs_container">
+            <a routerLink="ToDoListTeach" routerLinkActive="selected" class="tab_link">
+                <div class="tab" data-tooltip="To do List">
+                    <i class="bi bi-check2">
+                    </i>
+                </div>
+            </a>
+            <a routerLink="NoteTeacher" routerLinkActive="selected" class="tab_linkk" >
+                <div class="tab" data-tooltip="Notes">
+                    <i class="bi bi-file-text"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="videoContainer">
+        <video src="../../../../assets/22095814_dark-viral-titles_by_nixstudioedition_preview.mp4"  autoplay loop muted class="vid_slider"></video>
+    </div>
+   
+
+</section>

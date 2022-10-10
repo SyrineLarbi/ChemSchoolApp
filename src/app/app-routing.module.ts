@@ -15,6 +15,8 @@ import { EditTeacherComponent } from './AdminLayout/Teacher/edit-teacher/edit-te
 import { AdminDashboardComponent } from './AdminLayout/admin-dashboard/admin-dashboard.component';
 import { HomeTeacherComponent } from './UserLayout/TeacherProfile/home-teacher/home-teacher.component';
 import { StudentsHomeComponent } from './UserLayout/StudentProfile/students-home/students-home.component';
+import { ToDoListTeacherComponent } from './UserLayout/TeacherProfile/to-do-list-teacher/to-do-list-teacher.component';
+import { NotesComponent } from './UserLayout/TeacherProfile/notes/notes.component';
 const routes: Routes = [
   {path:"addusers",component:AddUsersComponent},
   {path:"Teacher",component:TeacherDashboardComponent},
@@ -31,7 +33,9 @@ const routes: Routes = [
   {path:"edit/:_id",component:EditTeacherComponent},
   {path:"AdminDashboard",component:AdminDashboardComponent},
   {path:"TeacherHome",component:HomeTeacherComponent},
-  {path:"StudentsHome",component:StudentsHomeComponent}
+  {path:"StudentsHome",component:StudentsHomeComponent},
+  {path:"ToDoListTeach",component:ToDoListTeacherComponent},
+  {path:"NoteTeacher",component:NotesComponent}
 
 ];
 

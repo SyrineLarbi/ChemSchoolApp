@@ -23,6 +23,8 @@ import { LogOutComponent } from './LogIn_Out/log-out/log-out.component';
 import { AdminDashboardComponent } from './AdminLayout/admin-dashboard/admin-dashboard.component';
 import { HomeTeacherComponent } from './UserLayout/TeacherProfile/home-teacher/home-teacher.component';
 import { StudentsHomeComponent } from './UserLayout/StudentProfile/students-home/students-home.component';
+import { ToDoListTeacherComponent } from './UserLayout/TeacherProfile/to-do-list-teacher/to-do-list-teacher.component';
+import { NotesComponent } from './UserLayout/TeacherProfile/notes/notes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +43,8 @@ import { StudentsHomeComponent } from './UserLayout/StudentProfile/students-home
     AdminDashboardComponent,
     HomeTeacherComponent,
     StudentsHomeComponent,
+    ToDoListTeacherComponent,
+    NotesComponent,
     
   ],
   imports: [

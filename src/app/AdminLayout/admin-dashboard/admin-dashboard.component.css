@@ -186,9 +186,7 @@ padding: 3% 0;
     grid-template-columns: repeat(3,1fr);
     grid-gap:2px
 }
-.title,.icon{
-    /* color: #474F66; */
-}
+
 .icon{
     font-size: 35px;
 }
