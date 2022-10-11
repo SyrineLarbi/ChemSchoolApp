@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,7 @@ import { HomeTeacherComponent } from './UserLayout/TeacherProfile/home-teacher/h
 import { StudentsHomeComponent } from './UserLayout/StudentProfile/students-home/students-home.component';
 import { ToDoListTeacherComponent } from './UserLayout/TeacherProfile/to-do-list-teacher/to-do-list-teacher.component';
 import { NotesComponent } from './UserLayout/TeacherProfile/notes/notes.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,8 @@ import { NotesComponent } from './UserLayout/TeacherProfile/notes/notes.componen
     HttpClientModule,
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
