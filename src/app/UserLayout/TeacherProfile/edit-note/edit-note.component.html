@@ -1,0 +1,56 @@
+<nav class="navBar">
+    <div class="barsIcone" ><i *ngIf="!toggleBar" (click)="toggleBars()"  class="bi bi-border-width"></i>
+        <i class="bi bi-x-lg" *ngIf="toggleBar" (click)="toggleBars()"></i></div>
+    <div class="nav_logo">
+        <a class="link-logo" routerLink="#">
+            <img class="logo" src="../../assets/logo.png" alt="logo"> 
+            <span class="logo-name">Chem School</span>
+        </a>
+    </div>
+    <div class="nav_main" [ngClass]="{te:toggleBar}">
+        <a href="#" class="home">Home</a>
+        <a href="#" class="home">TodoList</a>
+        <a href="#" class="home">Club</a>
+        <a routerLink="/NoteTeacher" class="home">Notes</a>
+        <a href="#" class="home">Quiz</a>
+        <a href="#" class="home">Bibliothèque</a>
+    </div>
+    <div class="LogOut">
+        <a class="nav-link logOut" routerLink="/LogOut">  <i class="bi bi-power"></i> LogOut</a>
+        <i class="bi bi-x-circle" *ngIf="close" (click)="searchBar()"></i>
+        <i class="bi bi-search" *ngIf="!close" (click)="searchBar()"></i>
+    </div>
+    <form action="" class="searchContainer" [ngClass]="{toggle:close}" >
+        <input type="search" name="searchText" [(ngModel)]="searchText" id="searchBar" placeholder="Search here...">
+        <label for="searchBar"><i class="bi bi-search"></i></label>
+    </form>
+</nav>
+<!-- (ngSubmit)="addItemTS(noteform.value); noteform.reset(); -->
+<section class="editNote">
+    <form [formGroup]="noteform">
+        <div class="noteheader">
+        <h1 class="modal-title fs-5" id="noteEditLabel">Edit a Note</h1>
+        </div>
+        <div class="modal-body">
+            <input type='hidden' name="_id" ngModel >
+            <div class="mb-3">
+            <label for="Title-name" class="col-form-label">Title:</label>
+            <input type="text"  class="form-control" id="Title-name" formControlName="Title_Note" ngModel>
+            </div>
+            <div class="mb-3">
+            <label for="message-text" class="col-form-label">Description:</label>
+            <textarea class="form-control" id="message-text" formControlName="Text_Note" ngModel></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btnEdit btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btnEdit btn btn-primary">Add Note</button>
+        </div>*
+        </form>
+
+</section>
+        <div class="videoContainer">
+            <video src="../../../../assets/22095814_dark-viral-titles_by_nixstudioedition_preview.mp4"  autoplay loop muted class="video"></video>
+        </div>
+<input type='hidden' name="_id" [(ngModel)]="noteData._id" >
+

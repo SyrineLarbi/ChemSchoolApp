@@ -12,7 +12,7 @@
         <a href="#" class="home">TodoList</a>
         <a href="#" class="home">Club</a>
         <a routerLink="/NoteTeacher" class="home">Notes</a>
-        <a href="#" class="home">Quiz</a>
+        <a href="/AddExam" class="home">Exam</a>
         <a href="#" class="home">Bibliothèque</a>
     </div>
     <div class="LogOut">
@@ -26,7 +26,7 @@
     </form>
 </nav>
 <div>
-    <form [formGroup]="noteform">
+    <form [formGroup]="noteform" (ngSubmit)="addItemTS(noteform.value); noteform.reset();">
     <!-- Modal -->
     <div class="modal fade" id="NoteModal" tabindex="-1"        aria-labelledby="NoteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -36,18 +36,19 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+              
                 <div class="mb-3">
                 <label for="Title-name" class="col-form-label">Title:</label>
-                <input type="text"  class="form-control" id="Title-name" formControlName="title_Note">
+                <input type="text"  class="form-control" id="Title-name" formControlName="Title_Note" ngModel>
                 </div>
                 <div class="mb-3">
                 <label for="message-text" class="col-form-label">Description:</label>
-                <textarea class="form-control" id="message-text" formControlName="Text_Note"></textarea>
+                <textarea class="form-control" id="message-text" formControlName="Text_Note" ngModel></textarea>
                 </div>
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Add Note</button>
+            <button type="submit" class="btn btn-primary">Add Note</button>
             </div>
         </div>
         </div>
@@ -61,20 +62,22 @@
                       <i class="bi bi-plus-lg"></i>
               </div>
               </button>
-              <p class="titleNOte">Add new note</p>
+              <p class="Add">Add new note</p>
           </li>
-          <li class="note">
+          <li class="note_container" *ngFor="let note of NotesData">
               <div class="note_data">
-                  <p class="titleNOte">This is a Title</p>
-                  <span class="note_text">hello this my first time coding a note I hope i will do it so well and i will try to improve my self to give a better result next time and in a short amount of time</span>
+                  <p class="titleNOte">{{note.Title_Note}}</p>
+                  <span class="note_text">{{note.Text_Note}}</span>
               </div>
               
               <div class="note_footer">
-                  <input type="text" formControlName="Date">
+                  <input type="hidden" formControlName="Date" ngModel >
+                  <span class="note_date">{{note.Date}}</span>
                   <div class="btn_note">
-                      <button type="button" class="btn btn-outline-danger"><i class="bi bi-trash"></i> Delete</button>
-                      <button type="button" class="btn btn_edit btn-outline-success" data-bs-toggle="modal" data-bs-target="#teacherDetails">
-                          <a> <i class="bi bi-pencil-fill"></i> Edit</a>
+                      <button type="button" class="btn btn-outline-danger" (click)="deleteNoteTS(note._id)"><i class="bi bi-trash"></i> Delete</button>
+                       <!-- Button trigger modal Edit-->
+                      <button type="button" class="btn btn_edit btn-outline-success" data-bs-toggle="modal" data-bs-target="#noteEdit"> 
+                          <a routerLink="/editNote/{{note._id}}"> <i class="bi bi-pencil-fill"></i>Edit</a>
                         </button>
                   </div>
               </div>

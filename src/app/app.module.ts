@@ -26,6 +26,9 @@ import { StudentsHomeComponent } from './UserLayout/StudentProfile/students-home
 import { ToDoListTeacherComponent } from './UserLayout/TeacherProfile/to-do-list-teacher/to-do-list-teacher.component';
 import { NotesComponent } from './UserLayout/TeacherProfile/notes/notes.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EditNoteComponent } from './UserLayout/TeacherProfile/edit-note/edit-note.component';
+import { AddExamComponent } from './UserLayout/TeacherProfile/Exams/add-exam/add-exam.component';
+import { ViewExamsComponent } from './UserLayout/TeacherProfile/Exams/view-exams/view-exams.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +49,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     StudentsHomeComponent,
     ToDoListTeacherComponent,
     NotesComponent,
+    EditNoteComponent,
+    AddExamComponent,
+    ViewExamsComponent,
     
   ],
   imports: [

@@ -17,6 +17,8 @@ import { HomeTeacherComponent } from './UserLayout/TeacherProfile/home-teacher/h
 import { StudentsHomeComponent } from './UserLayout/StudentProfile/students-home/students-home.component';
 import { ToDoListTeacherComponent } from './UserLayout/TeacherProfile/to-do-list-teacher/to-do-list-teacher.component';
 import { NotesComponent } from './UserLayout/TeacherProfile/notes/notes.component';
+import { EditNoteComponent } from './UserLayout/TeacherProfile/edit-note/edit-note.component';
+import { AddExamComponent } from './UserLayout/TeacherProfile/Exams/add-exam/add-exam.component';
 const routes: Routes = [
   {path:"addusers",component:AddUsersComponent},
   {path:"Teacher",component:TeacherDashboardComponent},
@@ -35,7 +37,9 @@ const routes: Routes = [
   {path:"TeacherHome",component:HomeTeacherComponent},
   {path:"StudentsHome",component:StudentsHomeComponent},
   {path:"ToDoListTeach",component:ToDoListTeacherComponent},
-  {path:"NoteTeacher",component:NotesComponent}
+  {path:"NoteTeacher",component:NotesComponent},
+  {path:'editNote/:_id',component:EditNoteComponent},
+  {path:'AddExam',component:AddExamComponent}
 
 ];
 

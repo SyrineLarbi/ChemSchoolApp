@@ -16,11 +16,12 @@ id :any;
 
   constructor(private router:Router,private userService:UsersService, private route:ActivatedRoute) {
     this.id=route.snapshot.params["_id"];
-    console.log(this.id)
+    // console.log(this.id)
    }
 
   ngOnInit(): void {
     this.getDataUser(this.id)
+    console.log("reeee")
   }
 getDataUser(user:Users){
   return this.userService.getData(user).subscribe(getData=>{

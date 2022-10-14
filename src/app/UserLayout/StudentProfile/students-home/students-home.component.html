@@ -1,1 +1,29 @@
-<p>students-home works!</p>
+<div  id="content" #content>
+<h1 class="modal-title fs-5" id="NoteModalLabel">Add a new Note</h1>
+           
+            <div class="modal-body">
+              
+                <div class="mb-3">
+                <label for="Title-name" class="col-form-label">Title:</label>
+                <input type="text"  class="form-control" id="Title-name" formControlName="Title_Note" ngModel>
+                </div>
+                <div class="mb-3">
+                <label for="message-text" class="col-form-label">Description:</label>
+                <textarea class="form-control" id="message-text" formControlName="Text_Note" ngModel></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Add Note</button>
+            </div>
+
+</div>
+
+
+
+
+
+
+
+
+<button (click)="makePDF()">Download</button>
