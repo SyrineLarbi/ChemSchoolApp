@@ -9,11 +9,7 @@ export const navData=[
         icon:"bi bi-person-plus-fill",
         name:"Teachers"
     },
-    {
-        link:"/ManageTeacher",
-        icon:"bi bi-briefcase-fill",
-        name:"Manage Teacher"
-    },
+   
     {
         link:"student",
         icon:"bi bi-mortarboard-fill",

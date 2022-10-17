@@ -1,4 +1,4 @@
-<div  id="content" #content>
+<!-- <div  id="content" #content>
 <h1 class="modal-title fs-5" id="NoteModalLabel">Add a new Note</h1>
            
             <div class="modal-body">
@@ -17,6 +17,51 @@
             <button type="submit" class="btn btn-primary">Add Note</button>
             </div>
 
+</div> -->
+ <div  id="content" #content> 
+<div class="modal-header">
+    <div class="row exam_Header justify-content-start modal-title fs-5 " id="courseModalLabel">
+         <div class="col-3">
+             <div class="logo_container">
+                 <img class="logo_image" src="../../assets/logo.png" alt="logo"> 
+                  <span class="school-name">Chem School</span>
+             </div>
+         </div>
+         <div class="col-6 name">
+             <div class="exam_details">
+                 <div class="course">
+                     <h2>Course :</h2>
+                     <select name="course" ngModel id="course_Exam">
+                         <option selected disabled >Select a course </option>
+                         <!-- <option  *ngFor="let course of course_name" value="{{course}}">{{course}}</option> -->
+                     </select>
+                 </div>
+             </div>
+         </div>
+         <div class="col-3 date">
+             <div class="examInfoDate">
+                 <label for="date">Date:</label>
+                 <input type="date" id="date">
+             </div>
+             <div class="examInfoDate">
+                 <label for="duration">Duration(h):</label>
+                 <input type="number" id="duration">
+             </div>
+            
+         </div>
+         <div class="modal-body">
+            <div>
+              <div class="mb-3">
+              <label for="Title-name" class="col-form-label">Title:</label>
+              <input type="text"  class="form-control" id="Title-name" ngModel>
+              </div>
+              <div class="mb-3">
+              <label for="message-text" class="col-form-label">Description:</label>
+              <textarea class="form-control" id="message-text"  ngModel></textarea>
+              </div>
+            </div>
+     </div>
+ </div>
 </div>
 
 
@@ -26,4 +71,4 @@
 
 
 
-<button (click)="makePDF()">Download</button>
+<button (click)="downloadPdf()">Download</button>

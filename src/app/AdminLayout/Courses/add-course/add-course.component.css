@@ -180,7 +180,7 @@ left:8%;
     float: right;
     /* border: 1px solid black; */
     width: 85%;
-    height: 100vh;
+    height: 100%;
     color: black;
     padding: 3%;
 }
@@ -195,8 +195,8 @@ padding: 3% 0;
 .form_teacher{
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
-    height: 800px
+    height: 500px;
+    margin: auto;
 }
 input[type="file"]{
   cursor: pointer;
@@ -228,13 +228,15 @@ overflow: hidden;
 
 /***********Form*********/
 .information{
+    position: relative;
+    top: 0px;
     width:70% ;
-    height: 820px;
+    height: 500px;
     background-color: #474F66;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 5% 0;
+    padding: 2% 0;
     border-radius: 15px;
     box-shadow: -14px 14px 3px -8px rgba(97,109,174,0.68);
     -webkit-box-shadow: -14px 14px 3px -8px rgba(97,109,174,0.68);
@@ -244,7 +246,7 @@ overflow: hidden;
     margin: 2%;
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    /* width: 90%; */
 }
 .details_Container{
     width: 48%;
@@ -389,6 +391,10 @@ option{
 .button{
   display: flex;
   justify-content: center;
+}
+
+#teacher{
+    text-transform: capitalize;
 }
 @media (max-width:400px){
 

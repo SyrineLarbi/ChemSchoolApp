@@ -25,12 +25,115 @@
         <label for="searchBar"><i class="bi bi-search"></i></label>
     </form>
 </nav>
-<section class="exam container" >
-    <div class="row justify-content-start">
-
-   
-    <div class="div exam_Header">
-
+<form #formExam="ngForm">
+    <!-- Modal -->
+    <div  class="modal fade" id="courseModal" tabindex="-1"  aria-labelledby="courseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content" id="content" #content>
+            <div class="modal-header">
+               <div class="row exam_Header justify-content-start modal-title fs-5 " id="courseModalLabel">
+                    <div class="col-3">
+                        <div class="logo_container">
+                            <img class="logo_image" src="../../assets/logo.png" alt="logo"> 
+                             <span class="school-name">Chem School</span>
+                        </div>
+                    </div>
+                    <div class="col-6 name">
+                        <div class="exam_details">
+                            <div class="course">
+                                <h2>Course :</h2>
+                                <select name="course" ngModel id="course_Exam">
+                                    <option selected disabled >Select a course </option>
+                                    <option  *ngFor="let course of course_name" value="{{course}}">{{course}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 date">
+                        <div class="examInfoDate">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="Date">
+                        </div>
+                        <div class="examInfoDate">
+                            <label for="duration">Duration(h):</label>
+                            <input type="number" id="duration" name="Duration">
+                        </div>
+                       
+                    </div>
+                      </div>
+            </div>
+            <div class="modal-body">
+              <div>
+                <div class="mb-3">
+                <label for="Title-name" class="col-form-label">Exercice 1:</label>
+                </div>
+                <div class="mb-3">
+                <label for="message-text" class="col-form-label">Description:</label>
+                <textarea class="form-control" [(ngModel)]="text" id="message-text" rows="5" cols="33" name="Description1" ngModel></textarea>
+                </div>
+              </div>
+              <div>
+                <div class="mb-3">
+                <label for="Title-name" class="col-form-label">Title:</label>
+                <input type="text"  class="form-control" id="Title-name" ngModel>
+                </div>
+                <div class="mb-3">
+                <label for="message-text" class="col-form-label">Description:</label>
+                <textarea class="form-control" id="message-text" name="Description2"  ngModel></textarea>
+                </div>
+              </div>
+              <div>
+                <div class="mb-3">
+                <label for="Title-name" class="col-form-label">Title:</label>
+                <input type="text"  class="form-control" id="Title-name" ngModel>
+                </div>
+                <div class="mb-3">
+                <label for="message-text" class="col-form-label">Description:</label>
+                <textarea class="form-control" id="message-text"  name="Description3" ngModel></textarea>
+                </div>
+              </div>
+            </div>
+        
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Add Note</button>
+            <button type="button" class="btn btn-outline-info" (click)="downloadPdf()">Download</button>
+            </div>
+        </div>
+        </div>
     </div>
-</div>
-</section>
+  <section class="container">
+      <div class="wrapper">
+          <li class="add_exam">  
+              <!-- Button trigger modal -->
+              <button class="btn_trigger_modal" type="button" data-bs-toggle="modal" data-bs-target="#courseModal">
+              <div class="icon_add">
+                      <i class="bi bi-plus-lg"></i>
+              </div>
+              </button>
+              <p class="Add">Add new note</p>
+          </li>
+          <li class="exam_container">
+              <div class="exam_data">
+                  <p class="titleexam"></p>
+                  <span class="exam_text"></span>
+              </div>
+              
+              <div class="exam_footer">
+                  <!-- <input type="hidden" formControlName="Date" > -->
+                  <span class="exam_date"></span>
+                  <div class="btn_exam">
+                      <button type="button" class="btn btn-outline-danger"><i class="bi bi-trash"></i> Delete</button>
+                      <button type="button" class="btn btn_edit btn-outline-success" data-bs-toggle="modal" data-bs-target="#courseEdit"> 
+                          <a> <i class="bi bi-pencil-fill"></i>Edit</a>
+                        </button>
+                  </div>
+              </div>
+          </li>
+      </div>
+     
+      <div class="videoContainer">
+          <video src="../../../../assets/22095814_dark-viral-titles_by_nixstudioedition_preview.mp4"  autoplay loop muted class="video"></video>
+      </div>
+  </section>
+    </form>

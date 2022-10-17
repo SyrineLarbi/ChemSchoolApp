@@ -1,0 +1,24 @@
+<div>
+    <section>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Reference</th>
+                <th scope="col">Teacher</th>
+                <th scope="col">Duration</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr *ngFor="let course of courseTab">
+                <td scope="row">{{course.Name}}</td>
+                <td>{{course.Reference}}</td>
+                <td>{{course.Teacher}}</td>
+                <td>{{course.Duration}}</td>
+                <td class="t"><button type="button" class="btn btn-outline-danger" (click)="deleteCourse(course._id)"> Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </section>
+    
+</div>

@@ -19,6 +19,7 @@ import { ToDoListTeacherComponent } from './UserLayout/TeacherProfile/to-do-list
 import { NotesComponent } from './UserLayout/TeacherProfile/notes/notes.component';
 import { EditNoteComponent } from './UserLayout/TeacherProfile/edit-note/edit-note.component';
 import { AddExamComponent } from './UserLayout/TeacherProfile/Exams/add-exam/add-exam.component';
+import { ViewCoursesComponent } from './AdminLayout/Courses/view-courses/view-courses.component';
 const routes: Routes = [
   {path:"addusers",component:AddUsersComponent},
   {path:"Teacher",component:TeacherDashboardComponent},
@@ -39,7 +40,9 @@ const routes: Routes = [
   {path:"ToDoListTeach",component:ToDoListTeacherComponent},
   {path:"NoteTeacher",component:NotesComponent},
   {path:'editNote/:_id',component:EditNoteComponent},
-  {path:'AddExam',component:AddExamComponent}
+  {path:'AddExam',component:AddExamComponent},
+  {path:'ViewCourse',component:ViewCoursesComponent},
+
 
 ];
 

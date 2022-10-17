@@ -29,6 +29,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { EditNoteComponent } from './UserLayout/TeacherProfile/edit-note/edit-note.component';
 import { AddExamComponent } from './UserLayout/TeacherProfile/Exams/add-exam/add-exam.component';
 import { ViewExamsComponent } from './UserLayout/TeacherProfile/Exams/view-exams/view-exams.component';
+import { ViewCoursesComponent } from './AdminLayout/Courses/view-courses/view-courses.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +54,7 @@ import { ViewExamsComponent } from './UserLayout/TeacherProfile/Exams/view-exams
     EditNoteComponent,
     AddExamComponent,
     ViewExamsComponent,
+    ViewCoursesComponent,
     
   ],
   imports: [
@@ -64,7 +67,8 @@ import { ViewExamsComponent } from './UserLayout/TeacherProfile/Exams/view-exams
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgMultiSelectDropDownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

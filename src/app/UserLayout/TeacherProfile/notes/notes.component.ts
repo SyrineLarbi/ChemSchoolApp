@@ -31,7 +31,7 @@ export class NotesComponent implements OnInit {
     })
  
     this.ViewNoteTeacher()
- console.log(this.date +"d")
+//  console.log(this.date +"d")
 
   }
   searchBar(){
@@ -50,7 +50,7 @@ export class NotesComponent implements OnInit {
   
     // this.dateArray.push(this.date)
     
-    console.log(this.date)
+    // console.log(this.date)
     }
     addItemTS(note:Note){
       return this.notes.addNote(note).subscribe(result=>{

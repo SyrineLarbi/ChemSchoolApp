@@ -43,7 +43,7 @@ export class LogInAdminComponent implements OnInit {
   LogInTS(users:Auth){
   return this.user.logIn(users).subscribe(result=>{
   this.data=result;
-
+  localStorage.setItem('teacherEmailsaved',this.data.Email)
   localStorage.setItem('userRole',this.data.Role)
   this.checkRole();
 

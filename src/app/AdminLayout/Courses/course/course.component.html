@@ -1,1 +1,26 @@
-<p>course works!</p>
+<section>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Reference</th>
+            <th scope="col">Teacher</th>
+            <th scope="col">Duration</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr *ngFor="let cours of courseTab">
+            <td scope="row">{{cours.Name}}</td>
+            <td>{{cours.Reference}}</td>
+            <td>{{cours.Teacher}}</td>
+            <td>{{cours.Duration}}</td>
+            <td class="t"><button type="button" class="btn btn-outline-danger"> Delete</button></td>
+            <!-- <td class="t">
+                 <button type="t" class="btn btn_edit btn-outline-success" data-bs-toggle="modal" data-bs-target="#teacherDetails">
+                <a>Edit</a>
+              </button>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+</section>

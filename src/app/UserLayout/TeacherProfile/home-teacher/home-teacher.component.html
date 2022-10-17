@@ -8,12 +8,10 @@
         </a>
     </div>
     <div class="nav_main" [ngClass]="{te:toggleBar}">
-        <a href="#" class="home">Home</a>
-        <a href="#" class="home">TodoList</a>
-        <a href="#" class="home">Club</a>
-        <a href="#" class="home">Notes</a>
-        <a href="#" class="home">Quiz</a>
-        <a href="#" class="home">Bibliothèque</a>
+        <a href="/TeacherHome" class="home">Home</a>
+        <a href="/ToDoListTeach" class="home">TodoList</a>
+        <a href="NoteTeacher" class="home">Notes</a>
+        <a href="/AddExam" class="home">Exam</a>
     </div>
     <div class="LogOut">
         <a class="nav-link logOut" routerLink="/LogOut">  <i class="bi bi-power"></i> LogOut</a>
@@ -29,6 +27,7 @@
     <div class="container">
        <div class="dailyInfo">
             <h3>Welcome Back</h3>
+            <h3>{{teacherName}}</h3>
             <h4>{{dateTime |date}}</h4>
             <h4>{{dateTime| date:'shortTime' }}</h4>
        </div> 
