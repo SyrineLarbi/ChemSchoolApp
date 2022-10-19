@@ -16,18 +16,14 @@ export const navData=[
         name:"Student"
     },
     {
-        link:"/addcourses",
+        link:"/CourseDash",
         icon:"bi bi-book-fill",
         name:"Courses"
     },
-    {
-        link:"attendance",
-        icon:"bi bi-graph-up",
-        name:"Attendance"
-    },
+    
     {
         link:"/LogOut",
-        icon:"bi bi-clipboard-data-fill ",
+        icon:"bi bi-power",
         name:"LogOut"
     }
 ]

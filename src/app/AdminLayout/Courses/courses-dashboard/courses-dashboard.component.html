@@ -1,7 +1,7 @@
 <div>
     <div class="navSection">
         <!------------SideBar------------> 
-          <section class="sideBar"  [ngClass]="{toggle:closed}">
+          <section class="sideBar" [ngClass]="{toggle:closed}">
              <!--------------------Side header---------------->
              <div id="sideBar-Header">
                  <div class="logo" (click)="toggleSideBar()">
@@ -36,19 +36,17 @@
           </section>
     </div>
     <div class="container"  [ngClass]="{toggle:closed}">
-        
-        <div class="teachers">
-            <div class="info-card" *ngFor="let card of cards">
-                <div class="info-card-main">
-                    <div class="info-card-front">
-                    <img  class="user_picture" src="../../../../assets/{{card.Picture}}" alt="Avatar">
-                    </div>
-                    <div class="info-card-back">
-                    <h2 class="name">{{card.First_name}} {{card.Last_name}}</h2> 
-                    <p class="speciality">{{card.Speciality}}</p> 
-                    <p class="email">Email: {{card.Email}}</p>
-                    </div>
-                </div>
+        <section class="teacher-container">
+            <div class="add teacher">
+                <i class="icon bi bi-person-plus-fill"></i>
+                <h2 class="title">Add new course </h2>
+                <button type="button" class="btn btn-outline"><a routerLink="/addcourses" class="btn_link">Add</a></button>
             </div>
-        </div>
+            <div class="view teacher">
+                <i class="icon bi bi-pencil-square"></i>
+                <h2 class="title">Manage courses</h2>
+                <button type="button" class="btn btn-outline"><a routerLink="/ViewCourse" class="btn_link">Edit</a></button>
+            </div>
+        </section>
     </div>
+  </div>

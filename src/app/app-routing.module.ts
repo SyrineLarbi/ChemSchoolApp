@@ -20,6 +20,8 @@ import { NotesComponent } from './UserLayout/TeacherProfile/notes/notes.componen
 import { EditNoteComponent } from './UserLayout/TeacherProfile/edit-note/edit-note.component';
 import { AddExamComponent } from './UserLayout/TeacherProfile/Exams/add-exam/add-exam.component';
 import { ViewCoursesComponent } from './AdminLayout/Courses/view-courses/view-courses.component';
+import { ViewExamsComponent } from './UserLayout/TeacherProfile/Exams/view-exams/view-exams.component';
+import { CoursesDashboardComponent } from './AdminLayout/Courses/courses-dashboard/courses-dashboard.component';
 const routes: Routes = [
   {path:"addusers",component:AddUsersComponent},
   {path:"Teacher",component:TeacherDashboardComponent},
@@ -42,6 +44,9 @@ const routes: Routes = [
   {path:'editNote/:_id',component:EditNoteComponent},
   {path:'AddExam',component:AddExamComponent},
   {path:'ViewCourse',component:ViewCoursesComponent},
+  {path:'addExam',component:AddExamComponent},
+  {path:"viewExam",component:ViewExamsComponent},
+  {path:"CourseDash",component:CoursesDashboardComponent}
 
 
 ];

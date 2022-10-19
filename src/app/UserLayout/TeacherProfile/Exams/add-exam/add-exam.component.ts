@@ -2,6 +2,10 @@ import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
 import { Course } from 'src/app/Interfaces/course';
 import { CoursesService } from 'src/app/Services/courses.service';
 import {jsPDF, jsPDFAPI } from 'jspdf';
+import { Exams } from 'src/app/Interfaces/exams';
+import { ExamsService } from 'src/app/Services/exams.service';
+import { Route,Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-add-exam',
@@ -15,12 +19,14 @@ toggleBar=false;
 searchText:any;
 course_name:any=[]
 totalLength:any;
+examData:any=[]
   page:number=1;
   itemsPerPage:number=4;
-  constructor(private courseService:CoursesService) { }
+  constructor(private courseService:CoursesService,private router:Router, private examservice:ExamsService) { }
   text:string=""
   ngOnInit(): void {
-    this.viewCourse()
+    this.viewCourse();
+    this.viewExam();
   }
   searchBar(){
     this.close=!this.close
@@ -48,6 +54,23 @@ downloadPdf(){
       
       pdf.save("Exam.pdf");
     }
+  })
+}
+addExamTS(exam:Exams){
+  return this.examservice.addExam(exam).subscribe(result=>{
+  //  window.location.reload()
+    this.viewExam();
+  })
+}
+viewExam(){
+  return this.examservice.viewExam().subscribe(result=>{
+this.examData=result
+this.totalLength=result.length
+  })
+}
+deleteExamTS(exam:ExamsService){
+  return this.examservice.deleteExam(exam).subscribe(result=>{
+    this.viewExam();
   })
 }
 }

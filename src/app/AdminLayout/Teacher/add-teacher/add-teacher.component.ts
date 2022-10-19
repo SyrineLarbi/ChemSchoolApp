@@ -23,6 +23,7 @@ export class AddTeacherComponent implements OnInit {
   }
   url="../../../assets/jennie ruby.jpg";
 
+
   toggleSideBar(){
     this.closed=!this.closed
   }
@@ -32,9 +33,15 @@ export class AddTeacherComponent implements OnInit {
       toRead.readAsDataURL(e.target.files[0]);
       toRead.onload=(event:any)=>{
         this.url=event.target.result;
+
+        //this.url=e.target.files[0].name;
+        // console.log(this.url);
+        
       }
     }
   }
+
+
   addTeacherTS(t:Teachers){
   return this.teacherSrv.addTeacher(t).subscribe(
     result=>{ console.log("sub correct")
@@ -52,6 +59,7 @@ export class AddTeacherComponent implements OnInit {
     return this.UserServ.ViewUser().subscribe(emailTeacher=>{
       // var email=emailTeacher.Email;
       // this.EmailTeachers=emailTeacher
+      // console.log(emailTeacher)
       for(let i=0; i<= emailTeacher.length; i++){
         if(emailTeacher[i].Role=="Teacher"){
           var Teachers=emailTeacher[i]

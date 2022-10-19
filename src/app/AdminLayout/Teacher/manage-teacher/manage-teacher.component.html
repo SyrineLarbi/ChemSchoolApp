@@ -36,7 +36,16 @@
           </section>
     </div>
     <div class="container"  [ngClass]="{toggle:closed}">
-        <section>
+        <section class="manageView">
+          <nav class="navbar searchnav">
+            <div class="container-fluid">
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchText" [(ngModel)]="searchText">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
+
             <table class="table">
                 <thead>
                   <tr>
@@ -46,7 +55,7 @@
                   </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                  <tr *ngFor="let teacher of teacherTab">
+                  <tr *ngFor="let teacher of teacherTab | filter:searchText | paginate: { itemsPerPage:9, currentPage: page, totalItems:totalLength } index as i  ">
                     <td scope="row">{{teacher.First_name}} {{teacher.Last_name}}</td>
                     <td>{{teacher.Speciality}}</td>
                     <td>{{teacher.Email}}</td>
@@ -59,5 +68,7 @@
                   </tr>
                 </tbody>
               </table>
+              <pagination-controls (pageChange)="page = $event"></pagination-controls>
+              <p class="total"> Total Teacher: {{totalLength}}</p>
         </section>
     </div>

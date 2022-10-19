@@ -25,7 +25,9 @@
         <label for="searchBar"><i class="bi bi-search"></i></label>
     </form>
 </nav>
-<form #formExam="ngForm">
+ 
+<form #formExam="ngForm" (ngSubmit)="addExamTS(formExam.value)">
+    <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
     <!-- Modal -->
     <div  class="modal fade" id="courseModal" tabindex="-1"  aria-labelledby="courseModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
@@ -52,11 +54,11 @@
                     <div class="col-3 date">
                         <div class="examInfoDate">
                             <label for="date">Date:</label>
-                            <input type="date" id="date" name="Date">
+                            <input type="date" id="date" name="Date" ngModel>
                         </div>
                         <div class="examInfoDate">
                             <label for="duration">Duration(h):</label>
-                            <input type="number" id="duration" name="Duration">
+                            <input type="number" id="duration" name="Duration" ngModel>
                         </div>
                        
                     </div>
@@ -96,7 +98,7 @@
         
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Add Note</button>
+            <button type="submit"  class="btn btn-primary">Add Note</button>
             <button type="button" class="btn btn-outline-info" (click)="downloadPdf()">Download</button>
             </div>
         </div>
@@ -113,17 +115,18 @@
               </button>
               <p class="Add">Add new note</p>
           </li>
-          <li class="exam_container">
-              <div class="exam_data">
-                  <p class="titleexam"></p>
-                  <span class="exam_text"></span>
+          <li class="exam_container" *ngFor="let exam of examData |paginate: { itemsPerPage:3, currentPage: page, totalItems:totalLength }">
+              <div class="exam_data" >
+                  <span class="titleexam">Course title : {{exam.course}}</span>
+                  <p class="exam_text">Date : {{exam.Date}}</p>
+                  <p class="exam_text">Duration : {{exam.Duration}}h</p>
               </div>
               
               <div class="exam_footer">
                   <!-- <input type="hidden" formControlName="Date" > -->
                   <span class="exam_date"></span>
                   <div class="btn_exam">
-                      <button type="button" class="btn btn-outline-danger"><i class="bi bi-trash"></i> Delete</button>
+                      <button type="button" class="btn btn-outline-danger" (click)="deleteExamTS(exam._id)"><i class="bi bi-trash"></i> Delete</button>
                       <button type="button" class="btn btn_edit btn-outline-success" data-bs-toggle="modal" data-bs-target="#courseEdit"> 
                           <a> <i class="bi bi-pencil-fill"></i>Edit</a>
                         </button>
@@ -131,6 +134,7 @@
               </div>
           </li>
       </div>
+      
      
       <div class="videoContainer">
           <video src="../../../../assets/22095814_dark-viral-titles_by_nixstudioedition_preview.mp4"  autoplay loop muted class="video"></video>

@@ -13,6 +13,9 @@ import { AuthService } from 'src/app/Services/AuthService/auth.service';
 export class ManageUsersComponent implements OnInit {
   users:any=[];
   searchText:any;
+  totalLength:any;
+  page:number=1;
+  itemsPerPage:number=3;
   constructor(private router:Router,private userService:UsersService, private authentification:AuthService) { 
 
   }
@@ -23,6 +26,7 @@ export class ManageUsersComponent implements OnInit {
   ViewUsersTS(){
     return this.userService.ViewUser().subscribe(result=>{
       this.users=result
+      this.totalLength=result.length
     })
   }
   DeleteUserTS(user:Users){

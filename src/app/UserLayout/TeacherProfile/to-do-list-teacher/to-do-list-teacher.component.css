@@ -13,6 +13,10 @@
  transition: all .2s linear;
 }
 
+.strike{
+    text-decoration: line-through;
+    opacity: 0.5;
+}
 .navBar{
     position: fixed;
     top: 0;

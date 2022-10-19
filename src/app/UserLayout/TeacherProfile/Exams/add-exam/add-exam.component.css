@@ -13,6 +13,12 @@
 .modal-body:hover{
     overflow-y: auto;
 }
+.pagination{
+    position: relative;
+    top: 140px;
+    left: 450px;
+    color: white;
+}
 textarea{
     outline: none;
     border: 0;

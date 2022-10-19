@@ -14,6 +14,10 @@ export class ManageTeacherComponent implements OnInit {
   closed=false;
   navDetails=navData;
   teacherTab:any=[];
+  searchText:any;
+  totalLength:any;
+  page:number=1;
+  itemsPerPage:number=3;
   constructor(private teacherServ:TeachersService,private route:Router) { }
 
   ngOnInit(): void {
@@ -25,6 +29,7 @@ export class ManageTeacherComponent implements OnInit {
   manageTeacherTS(){
     return this.teacherServ.viewTeacher().subscribe(result=>{
       this.teacherTab=result;
+      this.totalLength= result.length;
     })
   }
   deleteTeacherTS(t:TeachersService){

@@ -15,7 +15,7 @@ export class EditTeacherComponent implements OnInit {
   navDetails=navData;
   TeacherData:any=[];
   id :any;
-  url="../../../assets/jennie ruby.jpg";
+  url:any;;
   constructor(private router:Router, private teacherserv:TeachersService, private route:ActivatedRoute ) { 
     this.id=route.snapshot.params["_id"];
   }
@@ -30,6 +30,7 @@ export class EditTeacherComponent implements OnInit {
       toRead.readAsDataURL(e.target.files[0]);
       toRead.onload=(event:any)=>{
         this.url=event.target.result;
+        // console.log(this.url);
       }
     }
   }
@@ -39,11 +40,15 @@ export class EditTeacherComponent implements OnInit {
   getDataTeacher(teacher:Teachers){
     return this.teacherserv.getInfoTeacher(teacher).subscribe(getData=>{
       this.TeacherData=getData;
+      this.url="../../../assets/" + this.TeacherData.Picture
+      console.log(this.url)
     })
   }
 updateTeacher(teacher:TeachersService){
   return this.teacherserv.updateUser(this.TeacherData).subscribe(update=>{
     this.TeacherData=update;
+    this.url=this.TeacherData.Picture
+    console.log(this.url)
   
     this.router.navigate(['/ManageTeacher'])
   })

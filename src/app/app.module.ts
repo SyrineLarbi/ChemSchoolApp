@@ -31,6 +31,7 @@ import { AddExamComponent } from './UserLayout/TeacherProfile/Exams/add-exam/add
 import { ViewExamsComponent } from './UserLayout/TeacherProfile/Exams/view-exams/view-exams.component';
 import { ViewCoursesComponent } from './AdminLayout/Courses/view-courses/view-courses.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { CoursesDashboardComponent } from './AdminLayout/Courses/courses-dashboard/courses-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     AddExamComponent,
     ViewExamsComponent,
     ViewCoursesComponent,
+    CoursesDashboardComponent,
     
   ],
   imports: [

@@ -40,10 +40,10 @@
             <form #formTeacher="ngForm" class="form_teacher" (ngSubmit)="updateTeacher(formTeacher.value)">
             <div class="picture">
                 <!-- <img class="teach_img" src="../../../assets/jennie ruby.jpg" alt="user"> -->
-                 <img class="teach_img" [src]="url">
+                 <img class="teach_img" src={{url}}>
                <button class="btn btn_img" type="button">
                 <i class="bi bi-box-arrow-up"></i> Upload
-                <input class="file" type="file" name="Picture" value="url" (change)="selectFile($event)" ngModel>
+                <input class="file" type="file" name="Picture" (change)="selectFile($event)" [(ngModel)]="TeacherData.Picture">
             </button>
             </div>
             <div class="information">
@@ -96,21 +96,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="password contain">
-                        <label class="f_name" for="password">
-                            <input type="password" id="password" class="info password" placeholder=" " name="Password" #passwordTeacher="ngModel" ngModel [(ngModel)]="TeacherData.Password" required minlength="6" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$">
-                            <span class="label_input">Password : </span>
-                        </label>
-                        <div style="position:relative;top:5px" [hidden]="passwordTeacher.valid||passwordTeacher.pristine" class="alert alert-danger" role="alert">
-                            <div *ngIf="passwordTeacher.errors?.['required']">
-                                password is required
-                            </div>
-                            <div *ngIf="passwordTeacher.errors?.['pattern'] && passwordTeacher.errors?.['minlength']">
-                                Password must contain more than 6 characters, 1 upper case letter, and 1
-                                special character
-                            </div>
-                        </div>
-                    </div>
                     <div class="details">
                         <div class="details_Container">
                             <label class="f_name" for="age">
@@ -131,7 +116,7 @@
                                 <div *ngIf="phoneNumberTeacher.errors?.['required']">
                                     password is required
                                 </div>
-                                <div *ngIf="passwordTeacher.errors?.['minlength']">
+                                <div *ngIf="phoneNumberTeacher.errors?.['minlength']">
                                     Phone number must contain more than 6 characters
                                 </div>
                             </div>

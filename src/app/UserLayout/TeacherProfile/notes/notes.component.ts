@@ -54,9 +54,7 @@ export class NotesComponent implements OnInit {
     }
     addItemTS(note:Note){
       return this.notes.addNote(note).subscribe(result=>{
-        console.log("done");
-        this.ViewNoteTeacher()
-        console.log(this.date)
+        window.location.reload()
       })
 
       }

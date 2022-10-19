@@ -23,6 +23,7 @@ export class ViewTeacherComponent implements OnInit {
   }
   viewTeacherTS(){
     return this.teacherServ.viewTeacher().subscribe(result=>{
+      // console.log(result)
       this.cards=result;
     })
   }
