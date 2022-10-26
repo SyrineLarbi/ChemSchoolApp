@@ -1,0 +1,74 @@
+<div>
+    <div class="navSection">
+        <!------------SideBar------------> 
+          <section class="sideBar"  [ngClass]="{toggle:closed}">
+             <!--------------------Side header---------------->
+             <div id="sideBar-Header">
+                 <div class="logo" (click)="toggleSideBar()">
+                    <a class="link-dash" routerLink="dashboard">
+                     <img class="sideBar-logo" src="../../assets/logo.png" alt="logo"> 
+                     <span class="logo-name" *ngIf="!closed">Chem School</span>
+                 </a>
+                 </div>
+                 <div class="user">
+                     <div class="user-picture">
+                        <a routerLink="profile"> <img class="user-profile" src="../../assets/J.png" alt="user"></a>
+                     </div>
+                     <div class="user-info" *ngIf="!closed">
+                         <span>Welcome,</span>
+                         <h4 class="user-name">
+                             Jennie Ruby Jane
+                         </h4>
+                     </div>
+                 </div>
+             </div>
+             <!-----------------Side main------------------->
+             <div class="sideBar-main">
+                     <ul class="nav">
+                     <li class="nav-container" *ngFor=" let detail of navDetails">
+                         <a class="nav-link" [routerLink]="[detail.link]">
+                             <i class="nav-icon" [class]="detail.icon"></i>
+                             <span class="nav-name" *ngIf="!closed">{{detail.name}}</span>
+                         </a>
+                     </li>
+                 </ul>
+             </div>
+          </section>
+    </div>
+    <div class="container"  [ngClass]="{toggle:closed}">
+        <section class="manageView">
+          <nav class="navbar searchnav">
+            <div class="container-fluid">
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchText" [(ngModel)]="searchText">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Speciality</th>
+                    <th scope="col">Email</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  <tr *ngFor="let student of StudentsTab | filter:searchText | paginate: { itemsPerPage:9, currentPage: page, totalItems:totalLength } index as i  ">
+                    <td scope="row">{{student.First_name}} {{student.Last_name}}</td>
+                    <td>{{student.Speciality}}</td>
+                    <td>{{student.Email}}</td>
+                    <td class="t"><button type="button" class="btn btn-outline-danger" (click)="deleteStudents(student._id)"> Delete</button></td>
+                    <td class="t">
+                         <button type="t" class="btn btn_edit btn-outline-success" data-bs-toggle="modal" data-bs-target="#teacherDetails">
+                        <a routerLink="/edit/{{student._id}}">Edit</a>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <pagination-controls (pageChange)="page = $event"></pagination-controls>
+              <p class="total"> Total students: {{totalLength}}</p>
+        </section>
+    </div>

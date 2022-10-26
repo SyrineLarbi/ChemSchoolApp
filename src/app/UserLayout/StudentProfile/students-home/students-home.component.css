@@ -3,23 +3,13 @@
     align-items: center;
     width: 12%;
 }
-#content{
-    width: 595px;
-    height: 500px;
-    margin: auto;
-    margin-top: 20px;
-    margin-left: 100px;
-}
-.modal-body:hover{
-    overflow-y: auto;
-}
- *{
+*{
  /* outline: 1px dashed red; */
+ margin: 0;
+ padding: 0;
  box-sizing: border-box;
- /* text-transform: capitalize; */
+ text-transform: capitalize;
  text-decoration: none;
- /* margin: 0; */
- /* padding: 0; */
  transition: all .2s linear;
 }
 
@@ -112,93 +102,42 @@ margin-right: 120px;
     padding: 10px;
     border-radius: 10px;
 }
-/*************Exam Modal****************/
- /*****Header****/
- .exam_Header{
-    border: 1px solid #333;
-    width: 100%;
-    margin: auto;
+/********************Home*******************/
+.dashboard{
+    padding: 4%;
     /* position: relative; */
- }
- .logo_container{
-    width: 100%;
-    color: #333;
-    text-align: center;
-    margin: auto;
- }
- .logo_container, .date{
-    position: relative;
-    top: 25px;
- }
- .school-name{
-    color: black;
-    font-weight: bold;
-    font-size: 15px;
- }
- .logo_image{
-    width: 25%;
- }
- .course{
-    text-align: center;
-    font-weight: bold;
- }
- #course_Exam{
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    font-size: 15px;
-    text-transform: capitalize;
-   
 }
-select{
-outline: 0;
-border: 0;
-border-radius: 5px;
-padding-bottom: 20px;
-cursor: pointer;
+.dailyInfo{
+color: rgb(201, 142, 142);
+text-align: center;
+background-color: rgba(255, 255, 255, 0.103);
+border-radius: 15px;
+padding: 5px;
+backdrop-filter:blur(3px);
+position: absolute;
+top: 20%;
 }
-.course h2{
-    text-align: center;
-    width: 100%;
-}
-.modal{
-    position: relative;
-}
-.btn-close{
-    position: absolute;
-    top:30px;
-    right:30px;
-}
-.examInfoDate{
+.dailyInfo:hover{
+    box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
+    -webkit-box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
+    -moz-box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);}
+
+.container{
     display: flex;
-    width: 100%;
-    margin: auto;
+    align-items: center;
+    justify-content: space-around;
+    flex-flow: column;
     position: relative;
-    font-size: 15px;
+    height: 100vh;
 }
-.duration{
-    width: 100%;
+.container h3,h4{
+font-size: 30px;
+/* color: #fff; */
+text-transform: uppercase;
+text-shadow: 1px 1px #6d6e70;
+margin: 35px;
 }
-.examInfoDate input{
-    width: 90%;
-    margin: 0 15px 0px 3px;
-    border: 0;
-}
-
-.name{
-    border-left: 1px solid #333;
-    border-right: 1px solid #333;
-}
-
-.exam{
-    position: relative;
-    top: 120px;
-    /* color: #333; */
-}
-
-
- /*container*/
- video.video{
+video.vid_slider{
     position: absolute;
     top:0;
     left: 0;
@@ -208,124 +147,113 @@ cursor: pointer;
     object-fit: cover;
     opacity: 0.9;
 }
-/*********exam view***********/
-
-.wrapper{
-    position: relative;
-    height: 80vh;
-    top:95px;
-    margin: 0% 8%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill,400px);
-    gap:15px;
-    width: 100%;
+/************Tabs****************/
+.tabs_container{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    border-radius: 15px;
+    border: 1px solid black;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.141);
+    position: absolute;
+    bottom: 85px;
+    backdrop-filter: blur(3px);
 }
-.container{
-    margin: 2%; 
-    width: 100%;
-    height: 100%; 
-}
-.wrapper li{
-    background-color: rgba(255, 255, 255, 0.103);
-    color: white;
-    list-style: none;
-    padding: 3% 4% 4%;
-    border-radius: 5px;
-    margin:  3%;
-    width:90%;
-    height:auto;
-}
-.wrapper li:hover{
+.tabs_container:hover{
     box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
-    -webkit-box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
-    -moz-box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
+-webkit-box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
+-moz-box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
 }
-.add_exam, .icon_add{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+
+
+.tabs_container i{
+font-size: 25px;
+margin: auto;
+color: rgb(10, 10, 10);
 }
-.exam_container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 1%;
+.tab{
+    padding: 7px;
+    background-color: rgba(235, 152, 152, 0.503);
+    margin: 4px 7px;
+    cursor: pointer;
+    border-radius: 9px;
+    transition: all 0.4s ease;
+    opacity: 0.9;
+    position: relative;
 }
-.add_exam .icon_add{
-    border: 2px dashed rgb(201, 142, 142);
-    color: rgb(201, 142, 142);
-    font-size: 30px;
-    width: 85px;
-    height: 85px;
-    border-radius: 50%;
-    padding-right: 11px;
+.tab:hover{
+ transform: scale(1.1);
+    opacity: 1;
 }
-.Add, .titleexam{
-    color: rgb(209, 170, 170);
-    font-size: 17px;
-    font-weight: bold;
-    margin: 15px;
-}
-.titleexam{
-    font-size: 17px;
-    padding-bottom: 9px;
-    width: 50%;
+
+.tab:hover::before{
     text-align: center;
-    margin: auto;
-    text-transform: capitalize;
-    border-bottom: 1px solid rgb(201, 142, 142);
-}
-.exam_text{
-    color:rgba(255, 255, 255, 0.67);
-    display: block;
-    margin:25px 0;
-    font-size: 15px;
-}
-.exam_footer{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-    border-top: 1px solid rgb(201, 142, 142);
-    padding-top:10% ;
-}
-.exam_date{
-    margin-bottom: 8%;
-    font-size: 12px;
-    opacity: 0.7;
-}
-.btn{
-    width: 80px;
-    padding: 1% 5px;
-    margin: 1% 1% ;
-}
-.btn i{
-    font-size: 13px;
-    margin: auto;
-    color: rgba(178, 169, 169, 0.652);
-}
-.btn:hover i{
+    position: absolute;
+    top: -1px;
+    padding: 10px 30px;
+    width: max-content;
+    border-radius: 10px;
+    left: 50%;
+    background-color: #fff;
+    transform: translateX(-50%) translateY(-110%);
+    content: attr(data-tooltip);
     color: white;
-    transition: all 0.2 ease;
+    transition: all 0.2s ease-in-out;
+    background-color: rgba(51, 51, 51, 0.458);
 }
-.btn_exam{
-    width: 100%;
-    text-align: center;
+
+
+
+
+
+/**************media queries*****************/
+@media (max-width:768px){
+    .navBar .nav_main{
+        position: absolute;
+        top:100%; 
+        right: 0;
+        left: 0;
+        padding:  1px 0px;
+        width: 100%;
+        background-color: #333;
+        padding: 2% 2% ;
+        text-align: center;
+        border-top:1px solid rgba(255, 255, 255, 0.127) ;
+        clip-path: polygon(0 0,100% 0, 100% 0,0 0);
+    }
+
+    .barsIcone i{
+        display: block;
+        color: white;
+        font-size: 18px;
+    }
+    .logo-name,.LogOut,.nav_main a{
+        font-size: 19px;
+    }
+    .nav_logo{
+        width: 30%;
+        
+    }
+    .LogOut,.bi{
+        padding: 0 1%;
+    }
+    .nav_main a{
+        margin:  2% 4%;
+        display: block;
+        border-radius: 3px;
+        padding: 10px;
+        background-color: #222;
+    }
+    .navBar{
+        justify-content:space-around;
+    }
+    .navBar .nav_main.te{
+        clip-path: polygon(0 0,100% 0, 100% 100%,0 100%);
+    
+    }
+    
 }
-  /************PopUp Add*************/
-  .btn_trigger_modal{
-    background-color: transparent;
-    border: 0;
-  }
-
-
-
-
-
-
-
 
 
 

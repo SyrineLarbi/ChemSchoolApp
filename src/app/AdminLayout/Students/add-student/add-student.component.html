@@ -1,0 +1,153 @@
+<div>
+    <div class="navSection">
+        <!------------SideBar------------> 
+          <section class="sideBar"  [ngClass]="{toggle:closed}">
+             <!--------------------Side header---------------->
+             <div id="sideBar-Header">
+                 <div class="logo" (click)="toggleSideBar()">
+                    <a class="link-dash" routerLink="dashboard">
+                     <img class="sideBar-logo" src="../../assets/logo.png" alt="logo"> 
+                     <span class="logo-name" *ngIf="!closed">Chem School</span>
+                 </a>
+                 </div>
+                 <div class="user">
+                     <div class="user-picture">
+                        <a routerLink="profile"> <img class="user-profile" src="../../assets/J.png" alt="user"></a>
+                     </div>
+                     <div class="user-info" *ngIf="!closed">
+                         <span>Welcome,</span>
+                         <h4 class="user-name">
+                             Jennie Ruby Jane
+                         </h4>
+                     </div>
+                 </div>
+             </div>
+             <!-----------------Side main------------------->
+             <div class="sideBar-main">
+                     <ul class="nav">
+                     <li class="nav-container" *ngFor=" let detail of navDetails">
+                         <a class="nav-link" [routerLink]="[detail.link]">
+                             <i class="nav-icon" [class]="detail.icon"></i>
+                             <span class="nav-name" *ngIf="!closed">{{detail.name}}</span>
+                         </a>
+                     </li>
+                 </ul>
+             </div>
+          </section>
+        </div>
+        <div class="container"  [ngClass]="{toggle:closed}">
+            <section >
+                <form #formStudent="ngForm" class="form_teacher" (ngSubmit)="addStudentTS(formStudent.value)">
+                <div class="picture">
+                    <!-- <img class="teach_img" src="../../../assets/jennie ruby.jpg" alt="user"> -->
+                   <img class="teach_img" src={{url}}>
+                   <button class="btn btn_img" type="button">
+                    <i class="bi bi-box-arrow-up"></i> Upload
+                    <input class="file" type="file" name="Picture"  (change)="selectFile($event)"  [(ngModel)]="url">
+                </button> 
+                
+
+                </div>
+                <div class="information">
+                        <h2 class="form_legend">Add Student</h2>
+                        <div class="details">
+                            <div class="details_Container">
+                                <label class="f_name" for="f_name">
+                                    <input type="text" id="f_name" class="info name" placeholder=" " name="First_name" #nameTeacher="ngModel" ngModel required  pattern="[a-zA-Z\s]+" >
+                                    <span  class="label_input">First name : </span>
+                                 </label>
+                                 <div  style="position:relative;top:5px" [hidden]="nameTeacher.valid ||nameTeacher.pristine" class="alert alert-danger" role="alert">
+                                    <div *ngIf="nameTeacher.errors?.['pattern']"> Name must be a characters</div>
+                                    <div *ngIf="nameTeacher.errors?.['required']"> Name is required </div>
+                                    
+                                  </div>
+                            </div>
+                            <div class="details_Container">
+                                <label class="f_name" for="l_name">
+                                    <input type="text" id="l_name" class="info name" placeholder=" " name="Last_name" ngModel #lnameTeacher="ngModel" required pattern="[a-zA-Z\s]+">
+                                    <span class="label_input">Last name : </span>
+                                </label>
+                                <div  style="position:relative;top:5px" [hidden]="lnameTeacher.valid ||lnameTeacher.pristine" class="alert alert-danger" role="alert">
+                                    <div *ngIf="lnameTeacher.errors?.['pattern']"> Name must be a characters</div>
+                                    <div *ngIf="lnameTeacher.errors?.['required']"> Name is required </div>
+                                    
+                                  </div>
+                            </div> 
+                        </div>
+                        <div class="contain">
+                            <label class="f_name" for="Speciality">
+                              <input type="text" id="Speciality" class="info" placeholder=" " #speciality="ngModel" name="Speciality" required ngModel>
+                              <span class="label_input">Speciality : </span>
+                            </label>
+                            <div  style="position:relative;top:5px" [hidden]="speciality.valid ||speciality.pristine" class="alert alert-danger" role="alert">
+                                <div *ngIf="speciality.errors?.['required']"> Speciality is required </div>
+                              </div>
+                        </div>
+                        <!-- <div class="email contain">
+                            <label class="f_name" for="email">
+                                <input type="email" id="email"  #emailTeacher="ngModel" ngModel class="info email" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/" placeholder=" " name="Email" required email minlength="3">
+                                <span class="label_input">Email : </span>
+                            </label>
+                            <div style="position:relative;top:5px" [hidden]="emailTeacher.valid||emailTeacher.pristine" class="alert alert-danger" role="alert">
+                                <div *ngIf="emailTeacher.errors?.['required']">
+                                    Email is required
+                                </div>
+                                <div *ngIf=" emailTeacher.errors?.['email']">
+                                    Email is invalid
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="contain">
+                            <select class="form-select info" aria-label="role select role"  name="Email" id="section" ngModel >
+                                <option selected>Select a section</option>
+                                <option *ngFor="let email of emailStudents  " value="{{email}}">{{email}}</option>
+                            </select>
+                        </div>
+                        <div class="details">
+                            <div class="details_Container">
+                                <label class="f_name" for="age">
+                                    <input type="number" id="age" class="info age" placeholder=" " name="Age" #ageTeacher="ngModel" ngModel required min="23">
+                                    <span class="label_input">Age : </span>
+                                </label>
+                                <div style="position:relative;top:5px" [hidden]="ageTeacher.valid ||ageTeacher.pristine" class="alert alert-danger" role="alert"> 
+                                    <div *ngIf="ageTeacher.errors?.['min']"> Age must be more than 23</div>
+                                    <div *ngIf="ageTeacher.errors?.['required']"> Age is required</div>
+                                  </div>
+                            </div>
+                            <div class="details_Container">
+                                <label class="f_name" for="phone">
+                                    <input type="number" id="phone" #phoneNumberTeacher="ngModel" minlength="8" class="info phone" required placeholder=" " name="Phone_number" ngModel>
+                                    <span class="label_input">Phone number : </span>
+                                </label>
+                                <div style="position:relative;top:5px" [hidden]="phoneNumberTeacher.valid||phoneNumberTeacher.pristine" class="alert alert-danger" role="alert">
+                                    <div *ngIf="phoneNumberTeacher.errors?.['required']">
+                                        password is required
+                                    </div>
+                                    <div *ngIf="phoneNumberTeacher.errors?.['minlength']">
+                                        Phone number must contain more than 6 characters
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="address contain">
+                            <label class="f_name" for="address">
+                                <input type="text" id="address"  #addressTeacher="ngModel" class="info address" required placeholder=" " name="Address" ngModel>
+                                <span class="label_input">Address : </span>
+                            </label>
+                            <div style="position:relative;top:5px" [hidden]="addressTeacher.valid||addressTeacher.pristine" class="alert alert-danger" role="alert">
+                                <div *ngIf="addressTeacher.errors?.['required']">
+                                    Address is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button">
+                             <button  class="btn btn_submit" type="submit">Add</button>
+                             <button  class="btn btn_reset" type="reset">Cancel</button>
+                        </div>
+                </div>
+            </form>
+            </section>
+        </div>
+    </div>
+        

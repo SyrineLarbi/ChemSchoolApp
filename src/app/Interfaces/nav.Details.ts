@@ -11,7 +11,7 @@ export const navData=[
     },
    
     {
-        link:"student",
+        link:"/StudentDashboard",
         icon:"bi bi-mortarboard-fill",
         name:"Student"
     },

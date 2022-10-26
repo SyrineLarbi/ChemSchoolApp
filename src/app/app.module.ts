@@ -32,6 +32,11 @@ import { ViewExamsComponent } from './UserLayout/TeacherProfile/Exams/view-exams
 import { ViewCoursesComponent } from './AdminLayout/Courses/view-courses/view-courses.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { CoursesDashboardComponent } from './AdminLayout/Courses/courses-dashboard/courses-dashboard.component';
+import { AddStudentComponent } from './AdminLayout/Students/add-student/add-student.component';
+import { ManageStudentsComponent } from './AdminLayout/Students/manage-students/manage-students.component';
+import { StudentDashboardComponent } from './AdminLayout/Students/student-dashboard/student-dashboard.component';
+import { NoteStudentsComponent } from './UserLayout/StudentProfile/note-students/note-students.component';
+import { ToDoListStudentComponent } from './UserLayout/StudentProfile/to-do-list-student/to-do-list-student.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +62,11 @@ import { CoursesDashboardComponent } from './AdminLayout/Courses/courses-dashboa
     ViewExamsComponent,
     ViewCoursesComponent,
     CoursesDashboardComponent,
+    AddStudentComponent,
+    ManageStudentsComponent,
+    StudentDashboardComponent,
+    NoteStudentsComponent,
+    ToDoListStudentComponent,
     
   ],
   imports: [

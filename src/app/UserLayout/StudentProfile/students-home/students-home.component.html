@@ -1,74 +1,54 @@
-<!-- <div  id="content" #content>
-<h1 class="modal-title fs-5" id="NoteModalLabel">Add a new Note</h1>
-           
-            <div class="modal-body">
-              
-                <div class="mb-3">
-                <label for="Title-name" class="col-form-label">Title:</label>
-                <input type="text"  class="form-control" id="Title-name" formControlName="Title_Note" ngModel>
+<nav class="navBar">
+    <div class="barsIcone" ><i *ngIf="!toggleBar" (click)="toggleBars()"  class="bi bi-border-width"></i>
+        <i class="bi bi-x-lg" *ngIf="toggleBar" (click)="toggleBars()"></i></div>
+    <div class="nav_logo">
+        <a class="link-logo" routerLink="#">
+            <img class="logo" src="../../assets/logo.png" alt="logo"> 
+            <span class="logo-name">Chem School</span>
+        </a>
+    </div>
+    <div class="nav_main" [ngClass]="{te:toggleBar}">
+        <a href="/StudentsHome" class="home">Home</a>
+        <a href="/ToDoListStudent" class="home">TodoList</a>
+        <a href="/noteStudents" class="home">Notes</a>
+        <a href="/AddExam" class="home">Exam</a>
+    </div>
+    <div class="LogOut">
+        <a class="nav-link logOut" routerLink="/LogOut">  <i class="bi bi-power"></i> LogOut</a>
+        <i class="bi bi-x-circle" *ngIf="close" (click)="searchBar()"></i>
+        <i class="bi bi-search" *ngIf="!close" (click)="searchBar()"></i>
+    </div>
+    <form action="" class="searchContainer" [ngClass]="{toggle:close}" >
+        <input type="search" id="searchBar" placeholder="Search here...">
+        <label for="searchBar"><i class="bi bi-search"></i></label>
+    </form>
+</nav>
+<section class="dashboard">
+    <div class="container">
+       <div class="dailyInfo">
+            <h3>Welcome Back</h3>
+            <h3>{{studentName}}</h3>
+            <h4>{{dateTime |date}}</h4>
+            <h4>{{dateTime| date:'shortTime' }}</h4>
+       </div> 
+        <!-- <a href="#" class="btn">Discover More</a>  -->
+        <div class="tabs_container">
+            <a routerLink="/ToDoListTeach"  class="tab_link">
+                <div class="tab" data-tooltip="To do List">
+                    <i class="bi bi-check2">
+                    </i>
                 </div>
-                <div class="mb-3">
-                <label for="message-text" class="col-form-label">Description:</label>
-                <textarea class="form-control" id="message-text" formControlName="Text_Note" ngModel></textarea>
+            </a>
+            <a routerLink="/NoteTeacher" class="tab_linkk" >
+                <div class="tab" data-tooltip="Notes">
+                    <i class="bi bi-file-text"></i>
                 </div>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Add Note</button>
-            </div>
+            </a>
+        </div>
+    </div>
+    <div class="videoContainer">
+        <video src="../../../../assets/22095814_dark-viral-titles_by_nixstudioedition_preview.mp4"  autoplay loop muted class="vid_slider"></video>
+    </div>
+   
 
-</div> -->
- <div  id="content" #content> 
-<div class="modal-header">
-    <div class="row exam_Header justify-content-start modal-title fs-5 " id="courseModalLabel">
-         <div class="col-3">
-             <div class="logo_container">
-                 <img class="logo_image" src="../../assets/logo.png" alt="logo"> 
-                  <span class="school-name">Chem School</span>
-             </div>
-         </div>
-         <div class="col-6 name">
-             <div class="exam_details">
-                 <div class="course">
-                     <h2>Course :</h2>
-                     <select name="course" ngModel id="course_Exam">
-                         <option selected disabled >Select a course </option>
-                         <!-- <option  *ngFor="let course of course_name" value="{{course}}">{{course}}</option> -->
-                     </select>
-                 </div>
-             </div>
-         </div>
-         <div class="col-3 date">
-             <div class="examInfoDate">
-                 <label for="date">Date:</label>
-                 <input type="date" id="date">
-             </div>
-             <div class="examInfoDate">
-                 <label for="duration">Duration(h):</label>
-                 <input type="number" id="duration">
-             </div>
-            
-         </div>
-         <div class="modal-body">
-            <div>
-              <div class="mb-3">
-              <label for="Title-name" class="col-form-label">Title:</label>
-              <input type="text"  class="form-control" id="Title-name" ngModel>
-              </div>
-              <div class="mb-3">
-              <label for="message-text" class="col-form-label">Description:</label>
-              <textarea class="form-control" id="message-text"  ngModel></textarea>
-              </div>
-            </div>
-     </div>
- </div>
-</div>
-
-
-
-
-
-
-
-
-<button (click)="downloadPdf()">Download</button>
+</section>

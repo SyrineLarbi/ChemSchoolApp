@@ -6,7 +6,6 @@ import { Teachers } from '../Interfaces/teachers';
   providedIn: 'root'
 })
 export class TeachersService {
-
 private APIAddTeachers="http://localhost:3001/AddTeacher";
 private APIViewTeacher="http://localhost:3001/ViewTeacher";
 private APIDeleteTeacher="http://localhost:3001/DeleteTeacher/";
@@ -17,7 +16,6 @@ private APIUpdateTeacher="http://localhost:3001/updateTeacher"
     return this.http.post(this.APIAddTeachers,t)
   }
   viewTeacher(){
-  console.log("view");
   return this.http.get<any>(this.APIViewTeacher)
   }
   deleteTeacher(id:any){

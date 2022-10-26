@@ -22,6 +22,11 @@ import { AddExamComponent } from './UserLayout/TeacherProfile/Exams/add-exam/add
 import { ViewCoursesComponent } from './AdminLayout/Courses/view-courses/view-courses.component';
 import { ViewExamsComponent } from './UserLayout/TeacherProfile/Exams/view-exams/view-exams.component';
 import { CoursesDashboardComponent } from './AdminLayout/Courses/courses-dashboard/courses-dashboard.component';
+import { StudentDashboardComponent } from './AdminLayout/Students/student-dashboard/student-dashboard.component';
+import { AddStudentComponent } from './AdminLayout/Students/add-student/add-student.component';
+import { ManageStudentsComponent } from './AdminLayout/Students/manage-students/manage-students.component';
+import { ToDoListStudentComponent } from './UserLayout/StudentProfile/to-do-list-student/to-do-list-student.component';
+import { NoteStudentsComponent } from './UserLayout/StudentProfile/note-students/note-students.component';
 const routes: Routes = [
   {path:"addusers",component:AddUsersComponent},
   {path:"Teacher",component:TeacherDashboardComponent},
@@ -46,7 +51,12 @@ const routes: Routes = [
   {path:'ViewCourse',component:ViewCoursesComponent},
   {path:'addExam',component:AddExamComponent},
   {path:"viewExam",component:ViewExamsComponent},
-  {path:"CourseDash",component:CoursesDashboardComponent}
+  {path:"CourseDash",component:CoursesDashboardComponent},
+  {path:"StudentDashboard",component:StudentDashboardComponent},
+  {path:"addStudent",component:AddStudentComponent},
+  {path:"manageStudent",component:ManageStudentsComponent},
+  {path:"ToDoListStudent",component:ToDoListStudentComponent},
+  {path:"noteStudents",component:NoteStudentsComponent}
 
 
 ];
