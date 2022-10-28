@@ -16,10 +16,13 @@ export class AddTeacherComponent implements OnInit {
   closed=false;
   navDetails=navData;
   EmailTeachers:any=[]
+  em:any=[];
   constructor(private authentification:AuthService, private UserServ:UsersService, private teacherSrv:TeachersService, private route:Router) { }
 
   ngOnInit(): void {
-    this.viewEmailT();
+    this.verifEmail();
+   
+   
   }
   url="../../../assets/jennie ruby.jpg";
 
@@ -62,12 +65,30 @@ export class AddTeacherComponent implements OnInit {
       // console.log(emailTeacher)
       for(let i=0; i<= emailTeacher.length; i++){
         if(emailTeacher[i].Role=="Teacher"){
-          var Teachers=emailTeacher[i]
+          var Teachers=emailTeacher[i] 
           this.EmailTeachers.push(Teachers.Email)
         }
         
       }
       // console.log(this.EmailTeachers)
+    })
+  }
+  
+  verifEmail(){
+    this.viewEmailT();
+    return this.teacherSrv.viewTeacher().subscribe(result=>{
+      for(let j=0 ; j<= result.length;j++){
+        this.em=result[j].Email
+        // console.log(this.EmailTeachers)
+        this.EmailTeachers.forEach(emai => {
+          if(emai==this.em){
+            var index = this.EmailTeachers.indexOf(emai)
+            // console.log(index)
+            this.EmailTeachers.splice(index,1)
+          }
+          
+        });
+      }
     })
   }
 

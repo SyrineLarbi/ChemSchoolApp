@@ -8,7 +8,7 @@ import { Teachers } from 'src/app/Interfaces/teachers';
 })
 export class HomeTeacherComponent implements OnInit {
   close=false;
-  toggleBar=false;
+  Bar=false;
   dateTime:number =Date.now();
   teacherFName:any
   teacherLName:any
@@ -19,39 +19,37 @@ export class HomeTeacherComponent implements OnInit {
 
   ngOnInit(): void {
     this.ViewteacherName()
+    this.toggleBars()
   }
   searchBar(){
     this.close=!this.close
+   
   }
   toggleBars(){
-    this.toggleBar=!this.toggleBar
-    console.log('rg')
+    this.Bar=!this.Bar
+    console.log("heonlkn")
   }
   ViewteacherName(){
     return this.teacherService.viewTeacher().subscribe(result=>{
-      var email
+      var email:any;
       email= localStorage.getItem("teacherEmailsaved");
-      console.log(email)
       for (let i=0; i<=result.length;i++){
         this.teacherData=result[i];
         this.teacherEmail=this.teacherData.Email
-        
+        // console.log(this.teacherEmail)
         switch (this.teacherEmail) {
           case email:
-            console.log('ff')
+           console.log('ff')
            this.teacherFName =this.teacherData.First_name
            this.teacherLName=this.teacherData.Last_name
            this.teacherName= (`${this.teacherFName}  ${ this.teacherLName}`)
-            console.log( this.teacherFName)
+            console.log(this.teacherName)
             break;
-        
           default:
             console.log('nnnnnn')
             break;
         }
-        
       }
-
     })
   }
 }

@@ -37,7 +37,7 @@
         </div>
         <div class="container"  [ngClass]="{toggle:closed}">
             <section >
-                <form #formStudent="ngForm" class="form_teacher" (ngSubmit)="addStudentTS(formStudent.value)">
+                <form #formStudent="ngForm" class="form_teacher" (ngSubmit)="addStudentTS(formStudent.value);formStudent.reset(); ">
                 <div class="picture">
                     <!-- <img class="teach_img" src="../../../assets/jennie ruby.jpg" alt="user"> -->
                    <img class="teach_img" src={{url}}>
@@ -83,20 +83,6 @@
                                 <div *ngIf="speciality.errors?.['required']"> Speciality is required </div>
                               </div>
                         </div>
-                        <!-- <div class="email contain">
-                            <label class="f_name" for="email">
-                                <input type="email" id="email"  #emailTeacher="ngModel" ngModel class="info email" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/" placeholder=" " name="Email" required email minlength="3">
-                                <span class="label_input">Email : </span>
-                            </label>
-                            <div style="position:relative;top:5px" [hidden]="emailTeacher.valid||emailTeacher.pristine" class="alert alert-danger" role="alert">
-                                <div *ngIf="emailTeacher.errors?.['required']">
-                                    Email is required
-                                </div>
-                                <div *ngIf=" emailTeacher.errors?.['email']">
-                                    Email is invalid
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="contain">
                             <select class="form-select info" aria-label="role select role"  name="Email" id="section" ngModel >
                                 <option selected>Select a section</option>
@@ -142,7 +128,7 @@
                             </div>
                         </div>
                         <div class="button">
-                             <button  class="btn btn_submit" type="submit">Add</button>
+                             <button  class="btn btn_submit" type="submit" [disabled]="!formStudent.valid">Add</button>
                              <button  class="btn btn_reset" type="reset">Cancel</button>
                         </div>
                 </div>

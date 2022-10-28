@@ -47,4 +47,9 @@ export class ToDoListStudentComponent implements OnInit {
         console.log(this.totalLength)
       })
     }
+    deleteTodoTeacher(todo:ToDo){
+      return this.toDoStudent.deleteTodoTeacher(todo).subscribe(result=>{
+        this.ViewtoDOTeacher();
+      })
+    }
 }

@@ -32,7 +32,7 @@
     font-size: 25px;
     padding: 3px;
     cursor: pointer;
-    display: none;
+    /* display: none; */
 }
 .link-logo{
     text-decoration: none;
@@ -248,11 +248,9 @@ color: rgb(10, 10, 10);
     .navBar{
         justify-content:space-around;
     }
-    .navBar .nav_main.te{
+    .nav_main.te{
         clip-path: polygon(0 0,100% 0, 100% 100%,0 100%);
-    
     }
-    
 }
 
 

@@ -15,11 +15,12 @@ export class AddStudentComponent implements OnInit {
   closed=false;
   navDetails=navData;
   emailStudents:any=[];
+  em:any=[];
   url="../../../assets/jennie ruby.jpg";
   constructor(private UserServ:UsersService,private route:Router, private studentsService:StudentsService) { }
 
   ngOnInit(): void {
-    this.viewEmailT();
+    this.verifEmail();
   }
   toggleSideBar(){
     this.closed=!this.closed
@@ -55,6 +56,23 @@ viewEmailT(){
         this.emailStudents.push(students.Email)
       }
       
+    }
+  })
+}
+verifEmail(){
+  this.viewEmailT();
+  return this.studentsService.viewStudent().subscribe(result=>{
+    for(let j=0 ; j<= result.length;j++){
+      this.em=result[j].Email
+      // console.log(this.EmailTeachers)
+      this.emailStudents.forEach(emai => {
+        console.log('g')
+        if(emai==this.em){
+          var index = this.emailStudents.indexOf(emai)
+          // console.log(index)
+          this.emailStudents.splice(index,1)
+        }
+      });
     }
   })
 }

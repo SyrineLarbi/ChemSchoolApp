@@ -1,6 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { Chart,registerables } from 'chart.js';
 import { read } from 'fs';
+import { UsersService } from 'src/app/Services/users.service';
 
 @Component({
   selector: 'app-super-admin-dashboard',
@@ -11,38 +12,53 @@ export class SuperAdminDashboardComponent implements OnInit {
 chart:any
 canvas:any;
 ctx:any;
+user:any=[];
+totalUser:any;
+userAdmin:any=[];
+userTeacher:any=[];
+userStudent:any=[];
+teatcherNum:any;
+studentnmr:any;
+adminnum:any;
+users=parseInt(localStorage.getItem("totalUser"))
 @ViewChild('mychart') mychart:any;
 usersCounter:number=0;
 usercountStop:any=setInterval(()=>{
  this.usersCounter++;
- if(this.usersCounter==50)
+ if(this.usersCounter==this.users)
  {
   clearInterval(this.usercountStop);
  }
-},10)
-  constructor() { }
+},30)
+  constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
     this.chart=document.getElementById("myChart")
     Chart.register(...registerables);
+    this.dataChart();
     this.loadChart();
+    
   }
   loadChart(){
+    let teacher=localStorage.getItem("teacher")
+    let student=localStorage.getItem("student")
+    console.log(teacher)
     new Chart(this.chart,{
-      type:'doughnut',
+      type:'bar',
       data: {
         datasets:[{
-          data:[0, 10, 5, 2, 20, 30, 45],
+          data:[teacher,student],
           label:"Users",
-          backgroundColor:'red',
-          // tension:0.2,
+          barPercentage:0.5,
+          barThickness:30,
           borderColor:'black',
+          backgroundColor	:'rgba(0, 0, 0, 0.8)',
+          borderRadius:5,
+          hoverBackgroundColor:'rgba(0, 0, 0, 0.6)'
         },],
         labels:[
-          12,
-          14,
-          20,
-          10, 5 , 1, 14
+          "Teacher",
+          "Students"
         ],
       },
       options:{
@@ -56,6 +72,40 @@ usercountStop:any=setInterval(()=>{
       }
     })
   }
+  dataChart(){
+      return this.userService.ViewUser().subscribe(result=>{
+        
+        for(let i=0;i<=result.length;i++){
+          this.user=(result[i].Role)
+          switch ( this.user) {
+            case "Admin":
+              this.userAdmin.push(this.user)
+             
+              break;
+              case "Teacher":
+              this.userTeacher.push(this.user)
+             
+              break;
+              case "Student":
+              this.userStudent.push(this.user)
+             
+              break;
+          
+            default:
+              break;
+          }
+          this.teatcherNum=this.userTeacher.length
+          this.studentnmr=this.userStudent.length
+          this.adminnum=this.userAdmin.length
+          localStorage.setItem("teacher",this.teatcherNum);
+          localStorage.setItem("student",this.studentnmr)
+          localStorage.setItem('admin',this.adminnum)
+         this.totalUser= this.studentnmr+ this.adminnum+ this.teatcherNum
+         console.log(this.totalUser+"f")
+         localStorage.setItem("totalUser",this.totalUser)
+        }
 
-
-}
+        
+      })
+    }
+  }

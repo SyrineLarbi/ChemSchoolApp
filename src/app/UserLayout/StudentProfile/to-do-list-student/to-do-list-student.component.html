@@ -35,7 +35,7 @@
                     <li class="item" >
                         <i class="bi bi-circle" (click)="stirke()"></i>
                         <p class="todo_text"[ngClass]="{strike:strikethrough}" >{{TodoArray.To_Do_text}}</p>
-                        <i class="bi bi-trash"></i>
+                        <i class="bi bi-trash" (click)="deleteTodoTeacher(TodoArray._id)"></i>
                     </li>
                  </ul>  
             </div>
@@ -55,7 +55,6 @@
             </form>
             </div>
        </div> 
-        
     </div>
     <div class="videoContainer">
         <video src="../../../../assets/22095814_dark-viral-titles_by_nixstudioedition_preview.mp4"  autoplay loop muted class="video"></video>

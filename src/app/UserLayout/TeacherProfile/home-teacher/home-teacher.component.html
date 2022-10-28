@@ -1,13 +1,13 @@
 <nav class="navBar">
-    <div class="barsIcone" ><i *ngIf="!toggleBar" (click)="toggleBars()"  class="bi bi-border-width"></i>
-        <i class="bi bi-x-lg" *ngIf="toggleBar" (click)="toggleBars()"></i></div>
+    <div class="barsIcone" ><i *ngIf="Bar" (click)="toggleBars()"  class="bi bi-border-width"></i>
+        <i class="bi bi-x-lg" *ngIf="!Bar" (click)="toggleBars()"></i></div>
     <div class="nav_logo">
         <a class="link-logo" routerLink="#">
             <img class="logo" src="../../assets/logo.png" alt="logo"> 
             <span class="logo-name">Chem School</span>
         </a>
     </div>
-    <div class="nav_main" [ngClass]="{te:toggleBar}">
+    <div class="nav_main" [ngClass]="{te:Bar}">
         <a href="/TeacherHome" class="home">Home</a>
         <a href="/ToDoListTeach" class="home">TodoList</a>
         <a href="NoteTeacher" class="home">Notes</a>

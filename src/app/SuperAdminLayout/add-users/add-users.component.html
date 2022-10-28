@@ -39,7 +39,7 @@
 
     <div class="container">
         <section>
-            <form #formTeacher="ngForm" class="form_teacher" (ngSubmit)="addUserTs(formTeacher.value)">
+            <form #formUser="ngForm" class="form_teacher" (ngSubmit)="addUserTs(formUser.value)">
                 <div class="information">
                     <h2 class="form_legend">Add User</h2>
                     <div class="details">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="button">
-                    <button  class="btn btn_submit" type="submit">Add</button>
+                    <button  class="btn btn_submit" type="submit" [disabled]="!formUser.valid">Add</button>
                     <button  class="btn btn_reset" type="reset">Cancel</button>
                 </div>
                 </div>
