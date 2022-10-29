@@ -8,12 +8,10 @@
         </a>
     </div>
     <div class="nav_main" [ngClass]="{te:toggleBar}">
-        <a href="#" class="home">Home</a>
-        <a href="#" class="home">TodoList</a>
-        <a href="#" class="home">Club</a>
+        <a routerLink="/TeacherHome" class="home">Home</a>
+        <a routerLink="/ToDoListTeach" class="home">TodoList</a>
         <a routerLink="/NoteTeacher" class="home">Notes</a>
-        <a href="#" class="home">Quiz</a>
-        <a href="#" class="home">Bibliothèque</a>
+        <a routerLink="/AddExam" class="home">Exam</a>
     </div>
     <div class="LogOut">
         <a class="nav-link logOut" routerLink="/LogOut">  <i class="bi bi-power"></i> LogOut</a>
@@ -111,7 +109,7 @@
                       <i class="bi bi-plus-lg"></i>
               </div>
               </button>
-              <p class="Add">Add new note</p>
+              <p class="Add">Add new Exam</p>
           </li>
           <li class="exam_container" *ngFor="let exam of examData |paginate: { itemsPerPage:3, currentPage: page, totalItems:totalLength }">
               <div class="exam_data" >
@@ -121,7 +119,6 @@
               </div>
               
               <div class="exam_footer">
-                  <!-- <input type="hidden" formControlName="Date" > -->
                   <span class="exam_date"></span>
                   <div class="btn_exam">
                       <button type="button" class="btn btn-outline-danger" (click)="deleteExamTS(exam._id)"><i class="bi bi-trash"></i> Delete</button>

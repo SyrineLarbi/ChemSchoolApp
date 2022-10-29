@@ -12,7 +12,6 @@ import { ViewTeacherComponent } from './AdminLayout/Teacher/view-teacher/view-te
 import { ManageTeacherComponent } from './AdminLayout/Teacher/manage-teacher/manage-teacher.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AddUsersComponent } from './SuperAdminLayout/add-users/add-users.component';
 import { ManageUsersComponent } from './SuperAdminLayout/manage-users/manage-users.component';
 import { SuperAdminDashboardComponent } from './SuperAdminLayout/super-admin-dashboard/super-admin-dashboard.component';
 import { EditUserComponent } from './SuperAdminLayout/edit-user/edit-user.component';
@@ -37,6 +36,8 @@ import { ManageStudentsComponent } from './AdminLayout/Students/manage-students/
 import { StudentDashboardComponent } from './AdminLayout/Students/student-dashboard/student-dashboard.component';
 import { NoteStudentsComponent } from './UserLayout/StudentProfile/note-students/note-students.component';
 import { ToDoListStudentComponent } from './UserLayout/StudentProfile/to-do-list-student/to-do-list-student.component';
+import { AddUserComponent } from './LogIn_Out/SignUp/add-user/add-user.component';
+import { GuestHomeComponent } from './LogIn_Out/SignUp/guest-home/guest-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,6 @@ import { ToDoListStudentComponent } from './UserLayout/StudentProfile/to-do-list
     EditTeacherComponent,
     ViewTeacherComponent,
     ManageTeacherComponent,
-    AddUsersComponent,
     ManageUsersComponent,
     SuperAdminDashboardComponent,
     EditUserComponent,
@@ -67,6 +67,8 @@ import { ToDoListStudentComponent } from './UserLayout/StudentProfile/to-do-list
     StudentDashboardComponent,
     NoteStudentsComponent,
     ToDoListStudentComponent,
+    AddUserComponent,
+    GuestHomeComponent,
     
   ],
   imports: [

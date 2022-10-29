@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddUsersComponent } from './SuperAdminLayout/add-users/add-users.component';
 import { LogInAdminComponent } from './LogIn_Out/log-in-admin/log-in-admin.component';
 import { ManageUsersComponent } from './SuperAdminLayout/manage-users/manage-users.component';
 import { TeacherDashboardComponent } from './AdminLayout/Teacher/teacher-dashboard/teacher-dashboard.component';
@@ -27,8 +26,9 @@ import { AddStudentComponent } from './AdminLayout/Students/add-student/add-stud
 import { ManageStudentsComponent } from './AdminLayout/Students/manage-students/manage-students.component';
 import { ToDoListStudentComponent } from './UserLayout/StudentProfile/to-do-list-student/to-do-list-student.component';
 import { NoteStudentsComponent } from './UserLayout/StudentProfile/note-students/note-students.component';
+import { AddUserComponent } from './LogIn_Out/SignUp/add-user/add-user.component';
+import { GuestHomeComponent } from './LogIn_Out/SignUp/guest-home/guest-home.component';
 const routes: Routes = [
-  {path:"addusers",component:AddUsersComponent},
   {path:"Teacher",component:TeacherDashboardComponent},
   {path:"ViewUsers",component:ManageUsersComponent},
   {path:"",component:LogInAdminComponent},
@@ -40,6 +40,7 @@ const routes: Routes = [
   {path:"viewTeacher",component:ViewTeacherComponent},
   {path:"addcourses",component:AddCourseComponent},
   {path:"LogOut",component:LogOutComponent},
+  {path:"SignUp",component:AddUserComponent},
   {path:"edit/:_id",component:EditTeacherComponent},
   {path:"AdminDashboard",component:AdminDashboardComponent},
   {path:"TeacherHome",component:HomeTeacherComponent},
@@ -56,7 +57,8 @@ const routes: Routes = [
   {path:"addStudent",component:AddStudentComponent},
   {path:"manageStudent",component:ManageStudentsComponent},
   {path:"ToDoListStudent",component:ToDoListStudentComponent},
-  {path:"noteStudents",component:NoteStudentsComponent}
+  {path:"noteStudents",component:NoteStudentsComponent},
+  {path:"guest",component:GuestHomeComponent}
 
 
 ];

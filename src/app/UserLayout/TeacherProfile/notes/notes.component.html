@@ -1,19 +1,17 @@
 <nav class="navBar">
     <div class="barsIcone" ><i *ngIf="!toggleBar" (click)="toggleBars()"  class="bi bi-border-width"></i>
-        <i class="bi bi-x-lg" *ngIf="toggleBar" (click)="toggleBars()"></i></div>
+        <i class="bi bi-x-lg"*ngIf="toggleBar" (click)="toggleBars()"></i></div>
     <div class="nav_logo">
-        <a class="link-logo" routerLink="#">
+        <a class="link-logo" routerLink="/TeacherHome">
             <img class="logo" src="../../assets/logo.png" alt="logo"> 
             <span class="logo-name">Chem School</span>
         </a>
     </div>
     <div class="nav_main" [ngClass]="{te:toggleBar}">
-        <a href="#" class="home">Home</a>
-        <a href="#" class="home">TodoList</a>
-        <a href="#" class="home">Club</a>
+        <a routerLink="/TeacherHome" class="home">Home</a>
+        <a routerLink="/ToDoListTeach" class="home">TodoList</a>
         <a routerLink="/NoteTeacher" class="home">Notes</a>
-        <a href="/AddExam" class="home">Exam</a>
-        <a href="#" class="home">Bibliothèque</a>
+        <a routerLink="/AddExam" class="home">Exam</a>
     </div>
     <div class="LogOut">
         <a class="nav-link logOut" routerLink="/LogOut">  <i class="bi bi-power"></i> LogOut</a>
@@ -26,7 +24,7 @@
     </form>
 </nav>
 <div>
-    <form [formGroup]="noteform" (ngSubmit)="addItemTS(noteform.value); noteform.reset();">
+    <form [formGroup]="noteform" (ngSubmit)="addItemTS(noteform.value); noteform.reset();" >
     <!-- Modal -->
     <div class="modal fade" id="NoteModal" tabindex="-1"        aria-labelledby="NoteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -54,7 +52,7 @@
         </div>
     </div>
   <section class="container">
-      <div class="wrapper">
+      <div class="wrapper" [ngClass]="{te:toggleBar}">
           <li class="add_note">  
               <!-- Button trigger modal -->
               <button class="btn_trigger_modal" type="button" data-bs-toggle="modal" data-bs-target="#NoteModal">
@@ -64,12 +62,11 @@
               </button>
               <p class="Add">Add new note</p>
           </li>
-          <li class="note_container" *ngFor="let note of NotesData">
+          <li class="note_container" *ngFor="let note of NotesData |paginate: { itemsPerPage:3, currentPage: page, totalItems:totalLength }">
               <div class="note_data">
                   <p class="titleNOte">{{note.Title_Note}}</p>
                   <span class="note_text">{{note.Text_Note}}</span>
               </div>
-              
               <div class="note_footer">
                   <input type="hidden" formControlName="Date" >
                   <span class="note_date">{{note.Date}}</span>
@@ -82,8 +79,8 @@
                   </div>
               </div>
           </li>
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
       </div>
-     
       <div class="videoContainer">
           <video src="../../../../assets/22095814_dark-viral-titles_by_nixstudioedition_preview.mp4"  autoplay loop muted class="video"></video>
       </div>

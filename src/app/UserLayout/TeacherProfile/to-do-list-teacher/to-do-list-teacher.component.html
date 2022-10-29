@@ -8,12 +8,10 @@
         </a>
     </div>
     <div class="nav_main" [ngClass]="{te:toggleBar}">
-        <a href="#" class="home">Home</a>
-        <a href="#" class="home">TodoList</a>
-        <a href="#" class="home">Club</a>
-        <a href="#" class="home">Notes</a>
-        <a href="#" class="home">Quiz</a>
-        <a href="#" class="home">Bibliothèque</a>
+        <a routerLink="/TeacherHome" class="home">Home</a>
+        <a routerLink="/ToDoListTeach" class="home">TodoList</a>
+        <a routerLink="/NoteTeacher" class="home">Notes</a>
+        <a routerLink="/AddExam" class="home">Exam</a>
     </div>
     <div class="LogOut">
         <a class="nav-link logOut" routerLink="/LogOut">  <i class="bi bi-power"></i> LogOut</a>
@@ -26,10 +24,10 @@
     </form>
 </nav>
 <section class="dashboard">
-    <div class="toDo_section">
+    <div class="toDo_section" [ngClass]="{te:toggleBar}">
         <div class="dailyInfo">
-            <h4>{{dateTime |date}}</h4>
-            <h4>{{dateTime| date:'shortTime' }}</h4>
+            <h2>{{dateTime |date}}</h2>
+            <h2>{{dateTime| date:'shortTime' }}</h2>
        </div> 
        <div class="todo_container">
             <div class="todo_item" *ngFor="let TodoArray of TodosArray |paginate: { itemsPerPage:3, currentPage: page, totalItems:totalLength }" >

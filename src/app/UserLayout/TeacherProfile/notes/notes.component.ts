@@ -19,6 +19,9 @@ export class NotesComponent implements OnInit {
   NotesData:any;
   dateArray:any=[];
   notetest:any;
+  page:number=1;
+  totalLength:any;
+  itemsPerPage:number=4;
   noteform:FormGroup;
   months=["January","February","March","April","May","June","July","August","September","October","November","December"];
   constructor(private notes:NoteServiceService, private route:Router) {   this.getDateNote() }

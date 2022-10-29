@@ -27,7 +27,6 @@ export class HomeTeacherComponent implements OnInit {
   }
   toggleBars(){
     this.Bar=!this.Bar
-    console.log("heonlkn")
   }
   ViewteacherName(){
     return this.teacherService.viewTeacher().subscribe(result=>{

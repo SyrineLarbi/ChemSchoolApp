@@ -7,11 +7,11 @@
             <span class="logo-name">Chem School</span>
         </a>
     </div>
-    <div class="nav_main" [ngClass]="{te:Bar}">
-        <a href="/TeacherHome" class="home">Home</a>
-        <a href="/ToDoListTeach" class="home">TodoList</a>
-        <a href="NoteTeacher" class="home">Notes</a>
-        <a href="/AddExam" class="home">Exam</a>
+    <div class="nav_main" [ngClass]="{te:!Bar}">
+        <a routerLink="/TeacherHome" class="home">Home</a>
+        <a routerLink="/ToDoListTeach" class="home">TodoList</a>
+        <a routerLink="NoteTeacher" class="home">Notes</a>
+        <a routerLink="/AddExam" class="home">Exam</a>
     </div>
     <div class="LogOut">
         <a class="nav-link logOut" routerLink="/LogOut">  <i class="bi bi-power"></i> LogOut</a>
@@ -24,14 +24,13 @@
     </form>
 </nav>
 <section class="dashboard">
-    <div class="container">
+    <div class="container" [ngClass]="{te:!Bar}">
        <div class="dailyInfo">
             <h3>Welcome Back</h3>
             <h3>{{teacherName}}</h3>
             <h4>{{dateTime |date}}</h4>
             <h4>{{dateTime| date:'shortTime' }}</h4>
        </div> 
-        <!-- <a href="#" class="btn">Discover More</a>  -->
         <div class="tabs_container">
             <a routerLink="/ToDoListTeach"  class="tab_link">
                 <div class="tab" data-tooltip="To do List">
