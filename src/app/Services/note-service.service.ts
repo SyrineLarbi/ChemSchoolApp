@@ -10,7 +10,9 @@ export class NoteServiceService {
   private APIAddNoteTeacher="http://localhost:3001/Add_Note_Teacher";
   private APIViewNote="http://localhost:3001/ViewNote_Teacher";
   private APIDeleteNoteTeacher="http://localhost:3001/DeleteNoteTeacher/";
-  private APIGetNoteTeacher="http://localhost:3001/getNoteTeacher/"
+  private APIGetNoteTeacher="http://localhost:3001/getNoteTeacher/";
+  private APIUpdateNote="http://localhost:3001/updateNoteTeacher";
+
   constructor(private http:HttpClient) { }
   addNote(note:Note){
     return this.http.post(this.APIAddNoteTeacher,note)
@@ -25,7 +27,7 @@ export class NoteServiceService {
     getNOteTeacher(id:any){
       return this.http.get<any>(this.APIGetNoteTeacher+id)
     } 
-    // updateUser(teacher:any){
-      // return this.http.post(this.APIUpdateTeacher,teacher)
+    updateNote(note:any){
+      return this.http.post(this.APIUpdateNote,note)
    }
-
+  }

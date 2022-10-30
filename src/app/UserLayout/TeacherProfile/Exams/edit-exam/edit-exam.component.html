@@ -1,0 +1,71 @@
+<!-- (ngSubmit)="updateNote(noteform.value); noteform.reset();" -->
+<section class="examEdited">
+    <form #FormExam="ngForm"  (ngSubmit)="updateExam(FormExam.value); FormExam.reset();">
+        <div id="content" #content class="editNote">
+            <div class="header">
+                <div class="row exam_Header justify-content-start modal-title fs-5 " id="courseModalLabel">
+                     <div class="col-3">
+                         <div class="logo_container">
+                             <img class="logo_image" src="../../assets/logo.png" alt="logo"> 
+                              <span class="school-name">Chem School</span>
+                         </div>
+                     </div>
+                     <div class="col-6 name">
+                         <div class="exam_details">
+                             <div class="course">
+                                <input type='hidden' name="_id" ngModel [(ngModel)]="examData._id" >
+                                 <h2>Course :</h2>
+                                 <select name="course" ngModel id="course_Exam" [(ngModel)]="examData.course">
+                                     <option selected disabled >Select a course </option>
+                                     <option  *ngFor="let course of course_name" value="{{examData.course}}">{{examData.course}}</option>
+                                 </select>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-3 date">
+                         <div class="examInfoDate">
+                             <label for="date">Date:</label>
+                             <input type="date" id="date" name="Date" ngModel [(ngModel)]="examData.Date">
+                         </div>
+                         <div class="examInfoDate">
+                             <label for="duration">Duration(h):</label>
+                             <input type="number" id="duration" name="Duration" ngModel [(ngModel)]="examData.Duration">
+                         </div>
+                     </div>
+                       </div>
+             </div>
+             <div class="modal-body">
+               <div>
+                 <div class="mb-3">
+                 <label for="Title-name" class="col-form-label">Exercice 1:</label>
+                 </div>
+                 <div class="mb-2">
+                 <textarea class="form-control"[(ngModel)]="examData.Description1" [(ngModel)]="text" id="message-text" rows="5" cols="33" name="Description1" ngModel></textarea>
+                 </div>
+               </div>
+               <div>
+                 <div class="mb-3">
+                 <label for="Title-name" class="col-form-label">Exercice 2:</label>
+                 </div>
+                 <div class="mb-3">
+                 <textarea class="form-control" id="message-text" rows="5" cols="33" name="Description2" ngModel [(ngModel)]="examData.Description2"></textarea>
+                 </div>
+               </div>
+               <div>
+                 <div class="mb-3">
+                 <label for="Title-name" class="col-form-label">Exercice 3:</label>
+                 </div>
+                 <div class="mb-3">
+                 <textarea class="form-control" id="message-text" rows="4" cols="30" name="Description3" ngModel [(ngModel)]="examData.Description3"></textarea>
+                 </div>
+               </div>
+             </div>
+             <div class="modal-footer">
+             <button type="button" class="btnEdit btn btn-secondary" data-bs-dismiss="modal"><a routerLink="/addExam"> Close </a></button>
+             <button type="submit"  class="btn btn-primary">Add Note</button>
+             <button type="button" class="btn btn-outline-info" (click)="downloadPdf()">Download</button>
+             </div>
+         </div>
+        </form>
+</section>
+

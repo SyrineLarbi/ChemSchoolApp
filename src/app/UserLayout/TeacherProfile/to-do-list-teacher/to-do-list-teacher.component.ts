@@ -11,7 +11,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 })
 export class ToDoListTeacherComponent implements OnInit {
   close=false;
-  strikethrough=false
+  strikethrough=false;
   toggleBar=false;
   dateTime:number =Date.now();
   TodosArray:any=[];

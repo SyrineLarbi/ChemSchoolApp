@@ -8,12 +8,10 @@
         </a>
     </div>
     <div class="nav_main" [ngClass]="{te:toggleBar}">
-        <a href="#" class="home">Home</a>
-        <a href="#" class="home">TodoList</a>
-        <a href="#" class="home">Club</a>
+        <a routerLink="/TeacherHome" class="home">Home</a>
+        <a routerLink="/ToDoListTeach" class="home">TodoList</a>
         <a routerLink="/NoteTeacher" class="home">Notes</a>
-        <a href="#" class="home">Quiz</a>
-        <a href="#" class="home">Bibliothèque</a>
+        <a routerLink="/AddExam" class="home">Exam</a>
     </div>
     <div class="LogOut">
         <a class="nav-link logOut" routerLink="/LogOut">  <i class="bi bi-power"></i> LogOut</a>
@@ -27,23 +25,23 @@
 </nav>
 <!-- (ngSubmit)="addItemTS(noteform.value); noteform.reset(); -->
 <section class="editNote">
-    <form [formGroup]="noteform">
+    <form [formGroup]="noteform" (ngSubmit)="updateNote(noteform.value); noteform.reset();">
         <div class="noteheader">
         <h1 class="modal-title fs-5" id="noteEditLabel">Edit a Note</h1>
         </div>
         <div class="modal-body">
-            <input type='hidden' name="_id" ngModel >
+            <input type='hidden' name="_id" ngModel [(ngModel)]="noteData._id" >
             <div class="mb-3">
             <label for="Title-name" class="col-form-label">Title:</label>
-            <input type="text"  class="form-control" id="Title-name" formControlName="Title_Note" ngModel>
+            <input type="text"  class="form-control" id="Title-name" formControlName="Title_Note"  [(ngModel)]="noteData.Title_Note" ngModel>
             </div>
             <div class="mb-3">
             <label for="message-text" class="col-form-label">Description:</label>
-            <textarea class="form-control" id="message-text" formControlName="Text_Note" ngModel></textarea>
+            <textarea class="form-control" id="message-text" formControlName="Text_Note" [(ngModel)]="noteData.Text_Note"></textarea>
             </div>
         </div>
         <div class="modal-footer">
-        <button type="button" class="btnEdit btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btnEdit btn btn-secondary" data-bs-dismiss="modal"><a routerLink="/NoteTeacher"> Close </a></button>
         <button type="submit" class="btnEdit btn btn-primary">Add Note</button>
         </div>*
         </form>

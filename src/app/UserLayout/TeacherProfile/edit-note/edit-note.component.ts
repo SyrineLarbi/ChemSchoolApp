@@ -32,7 +32,25 @@ toggleBars(){
 
   getNoteDetails(note:Note){
     return this.noteService.getNOteTeacher(note).subscribe(getData=>{
+      console.log(getData)
+      this.noteform= new FormGroup({
+        _id:new FormControl(getData._id),
+        Title_Note:new FormControl(getData.Title_Note),
+        Text_Note:new FormControl(getData.Text_Note),
+        Date: new FormControl(getData.Date)
+      })
       this.noteData=getData
+    })
+  }
+  updateNote(note:NoteServiceService){
+    return this.noteService.updateNote(note).subscribe(update=>{
+      this.noteData=update;
+      this.noteform= new FormGroup({
+        Title_Note:new FormControl(this.noteData.Title_Note),
+        Text_Note:new FormControl(this.noteData.Text_Note),
+      })
+      // console.log(this.noteData)
+      this.router.navigate(["/NoteTeacher"])
     })
   }
 }

@@ -28,6 +28,7 @@ import { ToDoListStudentComponent } from './UserLayout/StudentProfile/to-do-list
 import { NoteStudentsComponent } from './UserLayout/StudentProfile/note-students/note-students.component';
 import { AddUserComponent } from './LogIn_Out/SignUp/add-user/add-user.component';
 import { GuestHomeComponent } from './LogIn_Out/SignUp/guest-home/guest-home.component';
+import { EditExamComponent } from './UserLayout/TeacherProfile/Exams/edit-exam/edit-exam.component';
 const routes: Routes = [
   {path:"Teacher",component:TeacherDashboardComponent},
   {path:"ViewUsers",component:ManageUsersComponent},
@@ -58,7 +59,8 @@ const routes: Routes = [
   {path:"manageStudent",component:ManageStudentsComponent},
   {path:"ToDoListStudent",component:ToDoListStudentComponent},
   {path:"noteStudents",component:NoteStudentsComponent},
-  {path:"guest",component:GuestHomeComponent}
+  {path:"guest",component:GuestHomeComponent},
+  {path:"editExam/:_id",component:EditExamComponent}
 
 
 ];

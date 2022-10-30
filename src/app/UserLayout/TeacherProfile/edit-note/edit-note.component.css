@@ -134,3 +134,8 @@ video.video{
 .btnEdit{
     margin: 1%;
 }
+.btnEdit a{
+    margin: 1%;
+    color: white;
+    text-decoration: none;
+}

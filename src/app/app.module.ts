@@ -38,6 +38,7 @@ import { NoteStudentsComponent } from './UserLayout/StudentProfile/note-students
 import { ToDoListStudentComponent } from './UserLayout/StudentProfile/to-do-list-student/to-do-list-student.component';
 import { AddUserComponent } from './LogIn_Out/SignUp/add-user/add-user.component';
 import { GuestHomeComponent } from './LogIn_Out/SignUp/guest-home/guest-home.component';
+import { EditExamComponent } from './UserLayout/TeacherProfile/Exams/edit-exam/edit-exam.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +70,7 @@ import { GuestHomeComponent } from './LogIn_Out/SignUp/guest-home/guest-home.com
     ToDoListStudentComponent,
     AddUserComponent,
     GuestHomeComponent,
+    EditExamComponent,
     
   ],
   imports: [
