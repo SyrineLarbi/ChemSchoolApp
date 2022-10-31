@@ -24,22 +24,21 @@
     </form>
 </nav>
 <section class="dashboard">
-    <div class="container">
+    <div class="container" [ngClass]="{te:toggleBar}">
        <div class="dailyInfo">
             <h3>Welcome Back</h3>
             <h3>{{studentName}}</h3>
             <h4>{{dateTime |date}}</h4>
             <h4>{{dateTime| date:'shortTime' }}</h4>
        </div> 
-        <!-- <a href="#" class="btn">Discover More</a>  -->
         <div class="tabs_container">
-            <a routerLink="/ToDoListTeach"  class="tab_link">
+            <a routerLink="/ToDoListStudent"  class="tab_link">
                 <div class="tab" data-tooltip="To do List">
                     <i class="bi bi-check2">
                     </i>
                 </div>
             </a>
-            <a routerLink="/NoteTeacher" class="tab_linkk" >
+            <a routerLink="/noteStudents" class="tab_linkk" >
                 <div class="tab" data-tooltip="Notes">
                     <i class="bi bi-file-text"></i>
                 </div>
@@ -49,6 +48,4 @@
     <div class="videoContainer">
         <video src="../../../../assets/22095814_dark-viral-titles_by_nixstudioedition_preview.mp4"  autoplay loop muted class="vid_slider"></video>
     </div>
-   
-
 </section>

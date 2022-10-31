@@ -1,1 +1,89 @@
-<p>note-students works!</p>
+<nav class="navBar">
+    <div class="barsIcone" ><i *ngIf="!toggleBar" (click)="toggleBars()"  class="bi bi-border-width"></i>
+        <i class="bi bi-x-lg"*ngIf="toggleBar" (click)="toggleBars()"></i></div>
+    <div class="nav_logo">
+        <a class="link-logo" routerLink="/TeacherHome">
+            <img class="logo" src="../../assets/logo.png" alt="logo"> 
+            <span class="logo-name">Chem School</span>
+        </a>
+    </div>
+    <div class="nav_main" [ngClass]="{te:toggleBar}">
+        <a routerLink="/TeacherHome" class="home">Home</a>
+        <a routerLink="/ToDoListTeach" class="home">TodoList</a>
+        <a routerLink="/NoteTeacher" class="home">Notes</a>
+        <a routerLink="/AddExam" class="home">Exam</a>
+    </div>
+    <div class="LogOut">
+        <a class="nav-link logOut" routerLink="/LogOut">  <i class="bi bi-power"></i> LogOut</a>
+        <i class="bi bi-x-circle" *ngIf="close" (click)="searchBar()"></i>
+        <i class="bi bi-search" *ngIf="!close" (click)="searchBar()"></i>
+    </div>
+    <form action="" class="searchContainer" [ngClass]="{toggle:close}" >
+        <input type="search" name="searchText" [(ngModel)]="searchText" id="searchBar" placeholder="Search here...">
+        <label for="searchBar"><i class="bi bi-search"></i></label>
+    </form>
+</nav>
+<div>
+    <form [formGroup]="noteform" (ngSubmit)="addItemTS(noteform.value); noteform.reset();" >
+    <!-- Modal -->
+    <div class="modal fade" id="NoteModal" tabindex="-1"        aria-labelledby="NoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="NoteModalLabel">Add a new Note</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+                <div class="mb-3">
+                <label for="Title-name" class="col-form-label">Title:</label>
+                <input type="text"  class="form-control" id="Title-name" formControlName="Title_Note" ngModel>
+                </div>
+                <div class="mb-3">
+                <label for="message-text" class="col-form-label">Description:</label>
+                <textarea class="form-control" id="message-text" formControlName="Text_Note" ngModel></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Add Note</button>
+            </div>
+        </div>
+        </div>
+    </div>
+  <section class="container">
+      <div class="wrapper" [ngClass]="{te:toggleBar}">
+          <li class="add_note">  
+              <!-- Button trigger modal -->
+              <button class="btn_trigger_modal" type="button" data-bs-toggle="modal" data-bs-target="#NoteModal">
+              <div class="icon_add">
+                      <i class="bi bi-plus-lg"></i>
+              </div>
+              </button>
+              <p class="Add">Add new note</p>
+          </li>
+          <li class="note_container" *ngFor="let note of NotesData |paginate: { itemsPerPage:3, currentPage: page, totalItems:totalLength }">
+              <div class="note_data">
+                  <p class="titleNOte">{{note.Title_Note}}</p>
+                  <span class="note_text">{{note.Text_Note}}</span>
+              </div>
+              <div class="note_footer">
+                  <input type="hidden" formControlName="Date" >
+                  <span class="note_date">{{note.Date}}</span>
+                  <div class="btn_note">
+                      <button type="button" class="btn btn-outline-danger" (click)="deleteNoteTS(note._id)"><i class="bi bi-trash"></i> Delete</button>
+                       <!-- Button trigger modal Edit-->
+                      <button type="button" class="btn btn_edit btn-outline-success" data-bs-toggle="modal" data-bs-target="#noteEdit"> 
+                          <a routerLink="/editNoteST/{{note._id}}"> <i class="bi bi-pencil-fill"></i>Edit</a>
+                        </button>
+                  </div>
+              </div>
+          </li>
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>
+      <div class="videoContainer">
+          <video src="../../../../assets/22095814_dark-viral-titles_by_nixstudioedition_preview.mp4"  autoplay loop muted class="video"></video>
+      </div>
+  </section>
+    </form>
+</div>

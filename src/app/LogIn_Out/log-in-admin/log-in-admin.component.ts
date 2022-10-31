@@ -16,19 +16,20 @@ export class LogInAdminComponent implements OnInit {
   fahide=faEyeSlash;
   messageAuthError:any;
   data:any=[]
+  error=false
   constructor(private router:Router,private user:AuthService) { }
 
   ngOnInit(): void {
-    this.checkRole()
+    // this.checkRole()
   }
   checkRole(){
     let role=localStorage.getItem("userRole")
     switch (role) {
       case "SuperAdmin":
-        this.router.navigate(['/ViewUsers'])
+        this.router.navigate(['/Dashboard'])
         break;
       case "Admin":
-        this.router.navigate(['/ManageTeacher'])
+        this.router.navigate(['/AdminDashboard'])
         break;
       case "Teacher":
         this.router.navigate(['/TeacherHome'])
@@ -37,7 +38,10 @@ export class LogInAdminComponent implements OnInit {
         this.router.navigate(['/StudentsHome'])
         break;
       default:
-        this.router.navigate([''])
+        this.router.navigate(['']);
+        this.error=!this.error
+       console.log("rrrr");
+       break;
     }
   }
   LogInTS(users:Auth){

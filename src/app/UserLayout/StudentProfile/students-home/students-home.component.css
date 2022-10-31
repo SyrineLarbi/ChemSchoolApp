@@ -1,7 +1,7 @@
 .nav_logo{
     display: flex;
     align-items: center;
-    width: 12%;
+    width: 15%;
 }
 *{
  /* outline: 1px dashed red; */
@@ -128,11 +128,11 @@ top: 20%;
     justify-content: space-around;
     flex-flow: column;
     position: relative;
-    height: 100vh;
+    height: 70vh;
+    top: 80px;
 }
 .container h3,h4{
 font-size: 30px;
-/* color: #fff; */
 text-transform: uppercase;
 text-shadow: 1px 1px #6d6e70;
 margin: 35px;
@@ -151,13 +151,12 @@ video.vid_slider{
 .tabs_container{
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     border-radius: 15px;
     border: 1px solid black;
     padding: 8px;
     background-color: rgba(255, 255, 255, 0.141);
     position: absolute;
-    bottom: 85px;
+    bottom: 55px;
     backdrop-filter: blur(3px);
 }
 .tabs_container:hover{
@@ -208,13 +207,29 @@ color: rgb(10, 10, 10);
 
 
 /**************media queries*****************/
+@media(max-width:1000px){
+    .nav_main, .nav_logo{
+        width: 25%;
+    }
+    .LogOut{
+        width: 20%;
+        padding-right: 15px;
+    }
+    .LogOut, .nav_main a{
+        font-size: 15px;
+    }
+    .tabs_container{
+        position: absolute;
+        bottom: 45px;
+    }
+    }
+    
 @media (max-width:768px){
     .navBar .nav_main{
         position: absolute;
         top:100%; 
         right: 0;
         left: 0;
-        padding:  1px 0px;
         width: 100%;
         background-color: #333;
         padding: 2% 2% ;
@@ -252,7 +267,15 @@ color: rgb(10, 10, 10);
         clip-path: polygon(0 0,100% 0, 100% 100%,0 100%);
     
     }
-    
+    .container.te{
+        z-index: -1;
+    }
+    .container{
+        height:80vh ;
+      }
+      .nav_logo{
+          width: 40%;
+      }
 }
 
 

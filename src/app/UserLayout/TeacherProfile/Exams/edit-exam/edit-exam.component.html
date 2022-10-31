@@ -1,6 +1,5 @@
-<!-- (ngSubmit)="updateNote(noteform.value); noteform.reset();" -->
-<section class="examEdited">
-    <form #FormExam="ngForm"  (ngSubmit)="updateExam(FormExam.value); FormExam.reset();">
+<section>
+    <form #FormExam="ngForm" class="examEdited" (ngSubmit)="updateExam(FormExam.value); FormExam.reset();">
         <div id="content" #content class="editNote">
             <div class="header">
                 <div class="row exam_Header justify-content-start modal-title fs-5 " id="courseModalLabel">
@@ -37,7 +36,7 @@
              <div class="modal-body">
                <div>
                  <div class="mb-3">
-                 <label for="Title-name" class="col-form-label">Exercice 1:</label>
+                 <label for="Title-name" class="col-form-labe title">Exercice 1:</label>
                  </div>
                  <div class="mb-2">
                  <textarea class="form-control"[(ngModel)]="examData.Description1" [(ngModel)]="text" id="message-text" rows="5" cols="33" name="Description1" ngModel></textarea>
@@ -45,7 +44,7 @@
                </div>
                <div>
                  <div class="mb-3">
-                 <label for="Title-name" class="col-form-label">Exercice 2:</label>
+                 <label for="Title-name" class="title col-form-label">Exercice 2:</label>
                  </div>
                  <div class="mb-3">
                  <textarea class="form-control" id="message-text" rows="5" cols="33" name="Description2" ngModel [(ngModel)]="examData.Description2"></textarea>
@@ -53,19 +52,20 @@
                </div>
                <div>
                  <div class="mb-3">
-                 <label for="Title-name" class="col-form-label">Exercice 3:</label>
+                 <label for="Title-name" class="title col-form-label">Exercice 3:</label>
                  </div>
                  <div class="mb-3">
                  <textarea class="form-control" id="message-text" rows="4" cols="30" name="Description3" ngModel [(ngModel)]="examData.Description3"></textarea>
                  </div>
                </div>
              </div>
-             <div class="modal-footer">
-             <button type="button" class="btnEdit btn btn-secondary" data-bs-dismiss="modal"><a routerLink="/addExam"> Close </a></button>
-             <button type="submit"  class="btn btn-primary">Add Note</button>
-             <button type="button" class="btn btn-outline-info" (click)="downloadPdf()">Download</button>
-             </div>
-         </div>
-        </form>
+        </div>
+        <div class="footer">
+            <button type="button" class="btnEdit btn btn-secondary" data-bs-dismiss="modal"><a routerLink="/addExam"> Close </a></button>
+            <button type="submit"  class="btn btn-primary">Add Note</button>
+            <button type="button" class="btn btn-outline-info" (click)="downloadPdf()">Download</button>
+        </div>
+         
+    </form>
 </section>
 

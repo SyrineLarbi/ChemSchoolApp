@@ -6,7 +6,7 @@
          <h2>LogIn</h2>
         </div>
         <div class="form_login">
-          <form class="logIn" #logIn="ngForm" (ngSubmit)="LogInTS(logIn.value)">
+          <form class="logIn" #logIn="ngForm" (ngSubmit)="LogInTS(logIn.value);logIn.reset();">
             <div class="mb-3 formUser">
               <fa-icon class="icon" [icon]="faUser"></fa-icon>
               <input type="email" class="form-control" id="emailUser" aria-describedby="emailHelp" placeholder="Email" name="Email" ngModel>
@@ -19,11 +19,33 @@
             <div class="error alert alert-danger" *ngIf="messageAuthError" >
               {{messageAuthError}}
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#logInModal" (click)="checkRole()">Submit</button>
           </form>
             <div class="signup">
               <span>Don't have an account? <a routerLink="/SignUp" class="link signup-link">Signup</a></span>
             </div>
+            <!-- Modal -->
+<div class="modal fade" id="logInModal" tabindex="-1" aria-labelledby="logInModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="logInModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+            <!-- <div class="alert alert-danger" role="alert" *ngIf="error">
+              "An account with that email is not recognised. Invalid username or password"
+            </div> -->
         </div>
       </section>
     </div>

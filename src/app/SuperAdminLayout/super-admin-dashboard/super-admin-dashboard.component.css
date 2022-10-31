@@ -25,14 +25,14 @@
 }
 .card{
     width: 100%;
-    background-color: rgb(118, 158, 219);
+    background-color: rgba(79, 136, 223, 0.799);
     border: 1px solid black;
     text-align: center;
     font-size: 20px;
     font-weight: bold;
 }
 .card:hover{
-    background-color: rgb(118, 158, 219,0.8) ;
+    background-color:white ;
 }
 .navbar{
     position: relative;
@@ -89,9 +89,6 @@ left: 155px;
    .form-control{
      padding: 3%;
    }
-
-
-
 /*responsive design*/
 @media (max-width: 991px )
 {
@@ -99,8 +96,6 @@ left: 155px;
         grid-template-columns: 1fr;
         height: auto;
     }
-
-
 }
 
 

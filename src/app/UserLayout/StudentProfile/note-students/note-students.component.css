@@ -1,0 +1,337 @@
+.nav_logo{
+    display: flex;
+    align-items: center;
+    width: 14%;
+}
+ *{
+ /* outline: 1px dashed red; */
+ box-sizing: border-box;
+ text-decoration: none;
+ transition: all .2s linear;
+}
+
+.navBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1% 1%;
+}
+
+.barsIcone i{
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 25px;
+    padding: 3px;
+    cursor: pointer;
+    display: none;
+}
+.link-logo{
+    text-decoration: none;
+}
+.logo{
+    width: 35%;
+    margin: 3% 0%;
+    cursor: pointer;
+}
+.logo-name{
+    padding-left:2%;
+    font-size: 15px;
+    color: white;
+}
+
+.LogOut,.bi{
+    color: white; 
+    margin-left: 15px;
+}
+.LogOut{
+    font-size: 19px;
+    display: flex;
+    justify-content: space-between;
+    width: 11%;
+}
+.nav_main a{
+    color: white;
+    margin: 0% 6%;
+    font-size: 19px;
+  
+}
+
+.nav_main a:hover{
+    color: #6d6e70;
+}
+.nav_main {
+width: 50%;
+margin-right: 120px;
+}
+.bi i{
+    font-size: 15px;
+    cursor: pointer;
+}
+.logOut:hover, .bi:hover{
+    color: #6d6e70;  
+}
+.searchContainer{
+    position: absolute;
+    top:100%;
+    left: 0;
+    right: 0;
+    padding: 13px 10px;
+    background-color:#333 ;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.725);
+    clip-path: polygon(0 0,100% 0, 100% 0,0 0);
+}
+.searchContainer.toggle{
+    clip-path: polygon(0 0,100% 0, 100% 100%,0 100%);
+
+}
+#searchBar{
+    width: 100%;
+    text-transform: none;
+    color: #333;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+/***************Note Container*****************/
+           /******background*****/
+video.video{
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+/*********Notes***********/
+.wrapper{
+    position: relative;
+    height: 80vh;
+    top:120px;
+    margin: 0% 8%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,400px);
+    gap:15px;
+    width: 100%;
+}
+.container{
+    margin: 2%; 
+    width: 100%;
+    height: 100%; 
+}
+.wrapper li{
+    background-color: rgba(255, 255, 255, 0.103);
+    color: white;
+    list-style: none;
+    padding: 3% 4% 4%;
+    border-radius:10px;
+    margin:  3%;
+    width:90%;
+    height:auto;
+}
+.wrapper li:hover{
+    box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
+    -webkit-box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
+    -moz-box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
+}
+.add_note, .icon_add{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.note_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 1%;
+}
+.add_note .icon_add{
+    border: 2px dashed rgb(201, 142, 142);
+    color: rgb(201, 142, 142);
+    font-size: 30px;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    padding-right: 11px;
+}
+.Add, .titleNOte{
+    color: rgb(209, 170, 170);
+    font-size: 17px;
+    font-weight: bold;
+    margin: 15px;
+}
+.titleNOte{
+    font-size: 17px;
+    padding-bottom: 9px;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    text-transform: capitalize;
+    border-bottom: 1px solid rgb(201, 142, 142);
+}
+.note_text{
+    color:rgba(255, 255, 255, 0.67);
+    display: block;
+    margin:25px 0;
+    font-size: 15px;
+}
+.note_footer{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    border-top: 1px solid rgb(201, 142, 142);
+    padding-top:10% ;
+}
+.note_date{
+    margin-bottom: 8%;
+    font-size: 12px;
+    opacity: 0.7;
+}
+.btn{
+    width: 80px;
+    padding: 1% 5px;
+    margin: 1% 1% ;
+}
+.btn_edit a{
+    color: green;
+}
+.btn_edit:hover a{
+    color: white;
+}
+
+.btn i{
+    font-size: 13px;
+    margin: auto;
+    color: rgba(178, 169, 169, 0.652);
+}
+.btn:hover i{
+    color: white;
+    transition: all 0.2 ease;
+}
+.btn_note{
+    width: 100%;
+    text-align: center;
+}
+  /************PopUp Add*************/
+  .btn_trigger_modal{
+    background-color: transparent;
+    border: 0;
+  }
+  /**************media queries*****************/
+@media(max-width:1000px){
+    .nav_main, .nav_logo{
+        width: 25%;
+    }
+    .LogOut{
+        width: 20%;
+        padding-right: 15px;
+    }
+    .LogOut, .nav_main a{
+        font-size: 15px;
+    }
+    .container .add_note{
+        width: 180px;
+        height:250px;
+    }
+    .container .note_container{
+        width: 180px;
+        height: 250px;
+    }
+    .add_note .icon_add{
+        font-size: 20px;
+    }
+    .add_note .Add, .titleNOte, .note_text{
+        font-size: 10px;
+    }
+    .wrapper{
+        grid-template-columns: repeat(auto-fill,200px);
+    }
+    }
+    
+    @media (max-width:768px){
+        .nav_main{
+            position: absolute;
+            top:100%; 
+            left: 0;
+            right: 0;
+            width: 100%;
+            background-color: #333  ;
+            padding: 2% 2% ;
+            text-align: center;
+            border-top:1px solid rgba(255, 255, 255, 0.127) ;
+            clip-path: polygon(0 0,100% 0, 100% 0,0 0);
+        }
+        
+        .barsIcone i{
+            display: block;
+            color: white;
+            font-size: 18px;
+        }
+        .logo-name,.LogOut,.nav_main a{
+            font-size: 19px;
+        }
+        .nav_logo{
+            width: 30%;
+            
+        }
+        .LogOut,.bi{
+            padding: 0 1%;
+        }
+        .nav_main a{
+            margin:  2% 4%;
+            display: block;
+            border-radius: 3px;
+            padding: 10px;
+            background-color: #222;
+        }
+        .nav_main a:hover{
+            box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
+            -webkit-box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
+            -moz-box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
+        }
+        .navBar{
+            justify-content:space-around;
+        }
+        .nav_main.te{
+            clip-path: polygon(0 0,100% 0, 100% 100%,0 100%);
+            
+        }
+        .wrapper.te{
+            z-index: -1;
+        }
+        
+        .nav_logo{
+            width: 40%;
+        }
+        .container .add_note{
+            width: 180px;
+            height:250px;
+        }
+        .container .note_container{
+            width: 180px;
+            height: 250px;
+        }
+        .add_note .icon_add{
+            font-size: 20px;
+        }
+        .add_note .Add, .titleNOte, .note_text{
+            font-size: 10px;
+        }
+        .wrapper{
+            grid-template-columns: repeat(auto-fill,200px);
+        }
+    }
+    

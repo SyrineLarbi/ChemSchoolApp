@@ -42,12 +42,12 @@ usercountStop:any=setInterval(()=>{
   loadChart(){
     let teacher=localStorage.getItem("teacher")
     let student=localStorage.getItem("student")
-    console.log(teacher)
+    let admin=localStorage.getItem("admin")
     new Chart(this.chart,{
       type:'bar',
       data: {
         datasets:[{
-          data:[teacher,student],
+          data:[teacher,student,admin],
           label:"Users",
           barPercentage:0.5,
           barThickness:30,
@@ -58,7 +58,8 @@ usercountStop:any=setInterval(()=>{
         },],
         labels:[
           "Teacher",
-          "Students"
+          "Students",
+          "Admin"
         ],
       },
       options:{
@@ -74,7 +75,7 @@ usercountStop:any=setInterval(()=>{
   }
   dataChart(){
       return this.userService.ViewUser().subscribe(result=>{
-        
+        console.log(result)
         for(let i=0;i<=result.length;i++){
           this.user=(result[i].Role)
           switch ( this.user) {

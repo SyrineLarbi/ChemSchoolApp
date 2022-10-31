@@ -29,6 +29,7 @@ import { NoteStudentsComponent } from './UserLayout/StudentProfile/note-students
 import { AddUserComponent } from './LogIn_Out/SignUp/add-user/add-user.component';
 import { GuestHomeComponent } from './LogIn_Out/SignUp/guest-home/guest-home.component';
 import { EditExamComponent } from './UserLayout/TeacherProfile/Exams/edit-exam/edit-exam.component';
+import { EditNoteSTComponent } from './UserLayout/StudentProfile/edit-note-st/edit-note-st.component';
 const routes: Routes = [
   {path:"Teacher",component:TeacherDashboardComponent},
   {path:"ViewUsers",component:ManageUsersComponent},
@@ -60,7 +61,8 @@ const routes: Routes = [
   {path:"ToDoListStudent",component:ToDoListStudentComponent},
   {path:"noteStudents",component:NoteStudentsComponent},
   {path:"guest",component:GuestHomeComponent},
-  {path:"editExam/:_id",component:EditExamComponent}
+  {path:"editExam/:_id",component:EditExamComponent},
+  {path:"editNoteST/:_id", component:EditNoteSTComponent}
 
 
 ];

@@ -10,7 +10,7 @@
             <div class="mb-3 formUser">
               <fa-icon class="icon" [icon]="faUser"></fa-icon>
               <input type="email" (change)="checkMailSuperAdmin()" (change)="check()"
-              #emailUser="ngModel" ngModel  pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/" class="form-control" id="emailUser" aria-describedby="emailHelp" placeholder="Email" name="Email" required email minlength="3" [(ngModel)]="Email" [(ngModel)]="verify">
+              #emailUser="ngModel" ngModel  pattern="/^[^ ]+@[^ ]+\.[a-z]{2,3}$/" class="form-control" id="emailUser" aria-describedby="emailHelp" placeholder="Email" name="Email" required email minlength="3" [(ngModel)]="Email" [(ngModel)]="verify">
               <div style="position:relative;top:5px" [hidden]="emailUser.valid||emailUser.pristine"  class="alert alert-danger" role="alert">
                 <div *ngIf="emailUser.errors?.['required']">
                     Email is required

@@ -46,7 +46,7 @@ toggleBars(){
     })
   }
   downloadPdf(){
-    let pdf= new jsPDF("p",'pt',[1400,900],true);
+    let pdf= new jsPDF("p",'pt',[750,700],true);
     pdf.setFontSize(15).splitTextToSize(this.text,180);
     // var splitetext=pdf.splitTextToSize(this.text,180);
     // pdf.text(15,20,splitetext)

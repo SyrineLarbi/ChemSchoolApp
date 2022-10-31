@@ -7,8 +7,6 @@
     width: 700px;
     height: 700px;
     margin: auto;
-    /* margin-top: 20px;
-    margin-left: 100px; */
 }
 .modal-body:hover{
     overflow-y: auto;
@@ -122,6 +120,13 @@ margin-right: 120px;
     border-radius: 10px;
 }
 /*************Exam Modal****************/
+.editNote{
+    border: 1px solid black;
+    padding: 1% 2%;
+}
+.footer{
+    text-align: center;
+}
  /*****Header****/
  .exam_Header{
     border: 1px solid #333;
@@ -157,7 +162,13 @@ margin-right: 120px;
     text-align: center;
     font-size: 15px;
     text-transform: capitalize;
-   
+}
+.form-control{
+    border:1px solid rgba(34, 34, 34, 0.174);
+}
+.title{
+    border-bottom: 1px solid black;
+    margin-top: 1%;
 }
 select{
 outline: 0;

@@ -39,6 +39,7 @@ import { ToDoListStudentComponent } from './UserLayout/StudentProfile/to-do-list
 import { AddUserComponent } from './LogIn_Out/SignUp/add-user/add-user.component';
 import { GuestHomeComponent } from './LogIn_Out/SignUp/guest-home/guest-home.component';
 import { EditExamComponent } from './UserLayout/TeacherProfile/Exams/edit-exam/edit-exam.component';
+import { EditNoteSTComponent } from './UserLayout/StudentProfile/edit-note-st/edit-note-st.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +72,7 @@ import { EditExamComponent } from './UserLayout/TeacherProfile/Exams/edit-exam/e
     AddUserComponent,
     GuestHomeComponent,
     EditExamComponent,
+    EditNoteSTComponent,
     
   ],
   imports: [
