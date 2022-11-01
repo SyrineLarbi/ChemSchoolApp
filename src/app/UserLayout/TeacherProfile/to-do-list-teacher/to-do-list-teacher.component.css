@@ -222,6 +222,11 @@ box-shadow: 1px 1px 14px 2px rgba(219,136,136,0.75);
     opacity: 0.5;
   }
 
+
+
+
+
+
   /**************media queries*****************/
   @media(max-width:1030px){
     .nav_main, .nav_logo{

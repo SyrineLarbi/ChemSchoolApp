@@ -129,7 +129,7 @@
           <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
       </div>
       <div class="videoContainer">
-          <video src="../../../../assets/22095814_dark-viral-titles_by_nixstudioedition_preview.mp4"  autoplay loop muted class="video"></video>
+          <video src="../../../../assets/22095814_dark-viral-titles_by_nixstudioedition_preview.mp4"  autoplay loop [muted]="'muted'" class="video"></video>
       </div>
   </section>
     </form>
