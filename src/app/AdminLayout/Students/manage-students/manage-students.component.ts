@@ -15,8 +15,11 @@ export class ManageStudentsComponent implements OnInit {
   StudentsTab:any=[];
   searchText:any;
   totalLength:any;
+  courseName:any=[]
   page:number=1;
+  tab:any=[]
   itemsPerPage:number=3;
+  tec:any=[]
   constructor(private  studentService:StudentsService,private route:Router) { }
   ngOnInit(): void {
     this.manageStudentsTS()
@@ -26,8 +29,23 @@ export class ManageStudentsComponent implements OnInit {
   }
   manageStudentsTS(){
     return this.studentService.viewStudent().subscribe(result=>{
-      this.StudentsTab=result;
+      this.StudentsTab=result
       this.totalLength= result.length;
+      for (let i=0; i<=result.length;i++){
+        this.tab=this.StudentsTab.map(({course})=>({course}))
+        console.log( this.tab)
+        this.tab.forEach(e=> {
+          let r=e.course
+                    // console.log( e)
+          for (let j=0; j<=r.length;j++){
+            this.courseName.push(r[j].item_text)
+            
+
+          }
+        
+        });
+       
+      }
     })
   }
   deleteStudents(S:StudentsService){

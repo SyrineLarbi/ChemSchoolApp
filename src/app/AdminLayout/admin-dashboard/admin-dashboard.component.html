@@ -5,7 +5,7 @@
              <!--------------------Side header---------------->
              <div id="sideBar-Header">
                  <div class="logo" (click)="toggleSideBar()">
-                    <a class="link-dash" routerLink="dashboard">
+                    <a class="link-dash" routerLink="/dashboard">
                      <img class="sideBar-logo" src="../../assets/logo.png" alt="logo"> 
                      <span class="logo-name" *ngIf="!closed">Chem School</span>
                  </a>
@@ -58,7 +58,7 @@
             <div class="card">
                 <div>
                     <h2>{{usersCounter}}</h2>
-                    <span class="title">Sections</span>
+                    <span class="title">Courses</span>
                 </div>
                 <div>
                     <span><i class="icon bi bi-book-fill"></i></span>

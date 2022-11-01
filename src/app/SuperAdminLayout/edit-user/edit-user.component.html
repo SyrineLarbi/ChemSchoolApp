@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="t">
       <div class="logo">
-        <a class="navbar-brand link-dash" routerLink="Dashboard">
+        <a class="navbar-brand link-dash" routerLink="/Dashboard">
          <img class="sideBar-logo" src="../../assets/logo.png" alt="logo"> 
          <span class="logo-name">Chem School</span>
         </a>
@@ -41,10 +41,11 @@
                 <div class="details">
                     <div class="email contain">
                         <label class="f_name" for="email">
+                          Email :
+                        </label>
                             <input type="hidden" name="_id" [(ngModel)]="UserData._id">
                             <input type="email" id="email"  #emailTeacher="ngModel" ngModel class="info email" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/" placeholder=" " name="Email" required email minlength="3" [(ngModel)]="UserData.Email">
-                            <span class="label_input">Email : </span>
-                        </label>
+                            
                         <div style="position:relative;top:5px" [hidden]="emailTeacher.valid||emailTeacher.pristine" class="alert alert-danger" role="alert">
                             <div *ngIf="emailTeacher.errors?.['required']">
                                 Email is required
@@ -55,10 +56,8 @@
                         </div>
                     </div>
                     <div class="password contain">
-                        <label class="f_name" for="password">
+                        <label class="f_name" for="password">Password :</label>
                             <input type="password" id="password" class="info password" placeholder=" " name="Password" [(ngModel)]="UserData.Password" #passwordTeacher="ngModel" ngModel required minlength="6" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$">
-                            <span class="label_input">Password : </span>
-                        </label>
                         <div style="position:relative;top:5px" [hidden]="passwordTeacher.valid||passwordTeacher.pristine" class="alert alert-danger" role="alert">
                             <div *ngIf="passwordTeacher.errors?.['required']">
                                 password is required
@@ -70,6 +69,7 @@
                         </div>
                     </div>
                     <div class="role contain">
+                      <label class="f_name" for="role">Role :</label>
                         <select class="form-select" aria-label="role select role" class="info" name="Role" ngModel [(ngModel)]="UserData.Role">
                             <option selected>Select a Role</option>
                             <option value="Admin">Admin</option>
@@ -79,8 +79,8 @@
                     </div>
                 </div>
                 <div class="button">
-                <button  class="btn btn_submit" type="submit">Add</button>
-                <button  class="btn btn_reset" type="reset">Cancel</button>
+                <button  class="btn btn-outline-success btn_submit" type="submit">Add</button>
+                <button  class="btn btn-outline-danger btn_reset" type="reset">Cancel</button>
             </div>
             </div>
         </form>

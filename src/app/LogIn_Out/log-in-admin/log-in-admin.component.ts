@@ -20,7 +20,7 @@ export class LogInAdminComponent implements OnInit {
   constructor(private router:Router,private user:AuthService) { }
 
   ngOnInit(): void {
-    // this.checkRole()
+ 
   }
   checkRole(){
     let role=localStorage.getItem("userRole")
@@ -50,9 +50,6 @@ export class LogInAdminComponent implements OnInit {
   localStorage.setItem('teacherEmailsaved',this.data.Email)
   localStorage.setItem('userRole',this.data.Role)
   this.checkRole();
-
-
- 
 })
   }
 }

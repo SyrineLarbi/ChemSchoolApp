@@ -253,10 +253,16 @@ overflow: hidden;
     width: 90%;
     margin: 3% 2%;
 }
+.gender{
+    margin: 2% 0;
+}
 /* .btn_submit,.btn_reset{
   width: 15%;
   margin: 1%;
 } */
+ng-multiselect-dropdown{
+    color: black;
+}
 .picture{
     display: flex;
     flex-direction: column;
