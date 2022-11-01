@@ -32,13 +32,15 @@ export class AddTeacherComponent implements OnInit {
   }
   selectFile(e:any){
     if(e.target.files){
+      
       let toRead=new FileReader();
       toRead.readAsDataURL(e.target.files[0]);
       toRead.onload=(event:any)=>{
-        this.url=event.target.result;
-
-        //this.url=e.target.files[0].name;
+        //this.url=event.target.result;
+        
+         this.url=e.target.files[0].name;
         // console.log(this.url);
+        //console.log(this.url);
         
       }
     }
@@ -47,7 +49,7 @@ export class AddTeacherComponent implements OnInit {
 
   addTeacherTS(t:Teachers){
   return this.teacherSrv.addTeacher(t).subscribe(
-    result=>{ console.log("sub correct")
+    result=>{ console.log(result)
     this.route.navigate(['/viewTeacher'])
   }
   )

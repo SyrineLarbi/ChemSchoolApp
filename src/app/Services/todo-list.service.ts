@@ -11,6 +11,7 @@ export class TodoListService {
   private APIDeleteToDOListTeacher="http://localhost:3001/DeleteToDoTeacher/";
   private APIAddToDoListStudent="http://localhost:3001/AddToDolist_Student";
   private APIViewToDoListStudent="http://localhost:3001/ViewtodoList_Student";
+  private APIDeleteToDOListStudent="http://localhost:3001/DeletetodoList_Student/";
   constructor(private http:HttpClient) { }
   ViewTodos(){
   return this.http.get<any>(this.APIViewToDoListTeacher)
@@ -26,5 +27,8 @@ export class TodoListService {
    }
    ViewTodosStudents(){
     return this.http.get<any>(this.APIViewToDoListStudent)
+    }
+    deleteToDoStudents(id:any){
+      return this.http.get<any>(this.APIDeleteToDOListStudent+id)
     }
 }

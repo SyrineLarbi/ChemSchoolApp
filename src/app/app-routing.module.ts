@@ -19,7 +19,6 @@ import { NotesComponent } from './UserLayout/TeacherProfile/notes/notes.componen
 import { EditNoteComponent } from './UserLayout/TeacherProfile/edit-note/edit-note.component';
 import { AddExamComponent } from './UserLayout/TeacherProfile/Exams/add-exam/add-exam.component';
 import { ViewCoursesComponent } from './AdminLayout/Courses/view-courses/view-courses.component';
-import { ViewExamsComponent } from './UserLayout/TeacherProfile/Exams/view-exams/view-exams.component';
 import { CoursesDashboardComponent } from './AdminLayout/Courses/courses-dashboard/courses-dashboard.component';
 import { StudentDashboardComponent } from './AdminLayout/Students/student-dashboard/student-dashboard.component';
 import { AddStudentComponent } from './AdminLayout/Students/add-student/add-student.component';
@@ -53,7 +52,6 @@ const routes: Routes = [
   {path:'AddExam',component:AddExamComponent},
   {path:'ViewCourse',component:ViewCoursesComponent},
   {path:'addExam',component:AddExamComponent},
-  {path:"viewExam",component:ViewExamsComponent},
   {path:"CourseDash",component:CoursesDashboardComponent},
   {path:"StudentDashboard",component:StudentDashboardComponent},
   {path:"addStudent",component:AddStudentComponent},

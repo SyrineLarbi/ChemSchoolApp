@@ -4,6 +4,7 @@ import { Teachers } from '../../../Interfaces/teachers';
 import { TeachersService } from '../../../Services/teachers.service';
 import { Route,Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { UsersService } from 'src/app/Services/users.service';
 
 @Component({
   selector: 'app-edit-teacher',
@@ -16,12 +17,15 @@ export class EditTeacherComponent implements OnInit {
   TeacherData:any=[];
   id :any;
   url:any;;
-  constructor(private router:Router, private teacherserv:TeachersService, private route:ActivatedRoute ) { 
+  EmailTeachers:any=[]
+  em:any=[];
+  constructor(private userServ:UsersService,private router:Router, private teacherserv:TeachersService, private route:ActivatedRoute ) { 
     this.id=route.snapshot.params["_id"];
   }
 
   ngOnInit(): void {
-    this.getDataTeacher(this.id)
+    this.getDataTeacher(this.id);
+    this.verifEmail();
   }
 
   selectFile(e:any){
@@ -55,4 +59,38 @@ updateTeacher(teacher:TeachersService){
 
 
 }
+viewEmailT(){
+  return this.userServ.ViewUser().subscribe(emailTeacher=>{
+    // var email=emailTeacher.Email;
+    // this.EmailTeachers=emailTeacher
+    // console.log(emailTeacher)
+    for(let i=0; i<= emailTeacher.length; i++){
+      if(emailTeacher[i].Role=="Teacher"){
+        var Teachers=emailTeacher[i] 
+        this.EmailTeachers.push(Teachers.Email)
+      }
+      
+    }
+    // console.log(this.EmailTeachers)
+  })
+}
+
+verifEmail(){
+  this.viewEmailT();
+  return this.teacherserv.viewTeacher().subscribe(result=>{
+    for(let j=0 ; j<= result.length;j++){
+      this.em=result[j].Email
+      // console.log(this.EmailTeachers)
+      this.EmailTeachers.forEach(emai => {
+        if(emai==this.em){
+          var index = this.EmailTeachers.indexOf(emai)
+          // console.log(index)
+          this.EmailTeachers.splice(index,1)
+        }
+        
+      });
+    }
+  })
+}
+
 }

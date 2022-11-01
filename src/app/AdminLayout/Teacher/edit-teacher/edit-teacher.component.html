@@ -17,7 +17,7 @@
                      <div class="user-info" *ngIf="!closed">
                          <span>Welcome,</span>
                          <h4 class="user-name">
-                             Jennie Ruby Jane
+                            Admin
                          </h4>
                      </div>
                  </div>
@@ -82,19 +82,11 @@
                             <div *ngIf="speciality.errors?.['required']"> Speciality is required </div>
                           </div>
                     </div>
-                    <div class="email contain">
-                        <label class="f_name" for="email">
-                            <input type="email" id="email"  #emailTeacher="ngModel" [(ngModel)]="TeacherData.Email" ngModel class="info email" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/" placeholder=" " name="Email" required email minlength="3">
-                            <span class="label_input">Email : </span>
-                        </label>
-                        <div style="position:relative;top:5px" [hidden]="emailTeacher.valid||emailTeacher.pristine" class="alert alert-danger" role="alert">
-                            <div *ngIf="emailTeacher.errors?.['required']">
-                                Email is required
-                            </div>
-                            <div *ngIf=" emailTeacher.errors?.['email']">
-                                Email is invalid
-                            </div>
-                        </div>
+                    <div class="contain">
+                        <select class="form-select info" aria-label="role select role"  name="Email" id="section" ngModel >
+                            <!-- <option selected>Select a section</option> -->
+                            <option selected *ngFor="let email of EmailTeachers" value="{{email}}">{{email}}</option>
+                        </select>
                     </div>
                     <div class="details">
                         <div class="details_Container">

@@ -67,6 +67,7 @@ toggleBars(){
   updateExam(exam:ExamsService){
     return this.examSer.updateExam(exam).subscribe(update=>{
       this.examData=update;
+      console.log(  this.examData)
       this.router.navigate(["/addExam"])
     })
   }

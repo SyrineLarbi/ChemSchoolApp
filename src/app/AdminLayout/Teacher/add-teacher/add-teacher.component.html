@@ -40,7 +40,7 @@
                 <form #formTeacher="ngForm" class="form_teacher" (ngSubmit)="addTeacherTS(formTeacher.value)">
                 <div class="picture">
                     <!-- <img class="teach_img" src="../../../assets/jennie ruby.jpg" alt="user"> -->
-                   <img class="teach_img" src={{url}}>
+                   <img class="teach_img" src="../../../assets/{{url}}">
                    <button class="btn btn_img" type="button">
                     <i class="bi bi-box-arrow-up"></i> Upload
                     <input class="file" type="file" name="Picture"  (change)="selectFile($event)"  [(ngModel)]="url">
