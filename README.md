@@ -7,6 +7,14 @@ Once signed up, the user will be directed to the guest page until the SuperAdmin
 Front-end : Angular
 Back-end : NodeJs
 
+/******** User's Layout (teacher and students Layout)**************/
+    *ToDo List
+    *Notes
+    *Exams
+    
+/****** Admin and SuperAdmin's Layout ************/
+  *CRUD (Add - Delete - Edit : users, courses)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
 ## Development server
