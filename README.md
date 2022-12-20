@@ -1,4 +1,11 @@
 # ChemSchoolApp
+School management app made with the MEAN stack with 4 dashboards (SuperAdmin,Admin,Teacher,Student).
+Each user's role can only be affected by the SuperAdmin who must have the following details : 
+Email : superadmin@mail.com
+Password : superadmin
+Once signed up, the user will be directed to the guest page until the SuperAdmin affects him a role, either it will be an Admin/teacher or student. As a consequence, the user will have access to his dashboard according to his role.
+Front-end : Angular
+Back-end : NodeJs
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
