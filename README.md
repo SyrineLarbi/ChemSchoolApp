@@ -11,6 +11,7 @@ Back-end : NodeJs
     *ToDo List
     *Notes
     *Exams
+    *Download Exam.pdf
     
 /****** Admin and SuperAdmin's Layout ************/
   *CRUD (Add - Delete - Edit : users, courses)
