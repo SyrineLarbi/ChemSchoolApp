@@ -6,7 +6,7 @@
          <h2>LogIn</h2>
         </div>
         <div class="form_login">
-          <form class="logIn" #logIn="ngForm" (ngSubmit)="LogInTS(logIn.value);logIn.reset();">
+          <form class="logIn" #logIn="ngForm" autocomplete="off" (ngSubmit)="LogInTS(logIn.value);logIn.reset();">
             <div class="mb-3 formUser">
               <fa-icon class="icon" [icon]="faUser"></fa-icon>
               <input type="email" class="form-control" id="emailUser" aria-describedby="emailHelp" placeholder="Email" name="Email" ngModel>

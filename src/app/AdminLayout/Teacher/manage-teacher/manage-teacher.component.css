@@ -132,18 +132,18 @@ left:8%;
 .container{
     float: right;
     /* border: 1px solid black; */
-    width: 95%;
+    width: 85%;
     height: 100vh;
     color: black;
     padding: 2%;
     position: relative;
-    left: -60px;
+    left: 20px;
 
 }
 .toggle.container{
 width: 100%;
 position: relative;
-left: -190px;
+left: -90px;
 }
   .btn:hover{
     box-shadow: 2px 2px 14px 1px rgba(188,194,230,0.68);
